@@ -5,7 +5,7 @@ class AboutControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_template 'about/index'
-    assert_equal 'About eMusic', assigns(:page_title)
-    assert_select 'title', 'About eMusic'
+    assert_equal 'About INEs Music', assigns(:page_title)
+    assert_select 'title', 'About INEs Music'
   end
 end
