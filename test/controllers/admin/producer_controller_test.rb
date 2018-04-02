@@ -1,39 +1,74 @@
 require 'test_helper'
 
 class Admin::ProducerControllerTest < ActionController::TestCase
-  test "should get new" do
+  fixtures :producer
+
+  test "new" do
     get :new
     assert_response :success
   end
 
-  test "should get create" do
-    get :create
-    assert_response :success
+  test "create" do
+    num_producers = Producer.count
+    post :create, :producer => { :name => 'The Monopoly Publishing Company' }
+    assert_response :redirect
+    assert_redirected_to :action => 'index'
+    assert_equal num_producers + 1, Producer.count
   end
 
-  test "should get edit" do
-    get :edit
-    assert_response :success
+  test "edit" do
+    get :edit, :id => 1
+    assert_select 'input' do
+      assert_select '[type=?]', 'text'
+      assert_select '[name=?]', 'producer[name]'
+      assert_select '[value=?]', 'Apress'
+    end
+    # assert_tag :tag => 'input', :attributes => { :name => 'producer[name]', :value => 'Apress' }
   end
 
-  test "should get update" do
-    get :update
-    assert_response :success
+  test "update" do
+    post :update, :id => 1, :producer => { :name => 'Apress.com' }
+    assert_response :redirect
+    assert_redirected_to :action => 'show', :id => 1
+    assert_equal 'Apress.com', Producer.find(1).name
   end
 
-  test "should get destroy" do
-    get :destroy
-    assert_response :success
+  test "destroy" do
+    assert_difference(Producer, :count, -1) do
+      post :destroy, :id => 1
+      assert_equal flash[:notice], 'Succesfully deleted producer Apress.'
+      assert_response :redirect
+      assert_redirected_to :action => 'index'
+      get :index
+      assert_response :success
+      assert_select 'div#notice', 'Succesfully deleted producer Apress.'
+      # assert_tag :tag => 'div', :attributes => {:id => 'notice'},
+      #            :content => 'Succesfully deleted producer Apress.'
+    end
   end
 
-  test "should get show" do
-    get :show
+  test "show" do
+    get :show, :id => 1
     assert_response :success
+    assert_template 'admin/producer/show'
+    assert_not_nil assigns(:producer)
+    assert assigns(:producer).valid?
+    assert_select 'div#content' do
+      assert_select 'h1', Producer.find(1).name
+    end
+    # assert_tag "h1", :content => Producer.find(1).name
   end
 
-  test "should get index" do
+  test "index" do
     get :index
     assert_response :success
+    assert_select 'table' do
+      assert_select 'tr', Producer.count + 1
+    end
+    # assert_tag :tag => 'table', :children => { :count => Producer.count + 1, :only => {:tag => 'tr'} }
+    Producer.find_each do |a|
+      assert_select 'td', a.name
+      # assert_tag :tag => 'td', :content => a.name
+    end
   end
-
 end
