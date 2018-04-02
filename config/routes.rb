@@ -1,5 +1,33 @@
 Rails.application.routes.draw do
   
+  namespace :admin do
+  get 'producer/new'
+  end
+
+  namespace :admin do
+  get 'producer/create'
+  end
+
+  namespace :admin do
+  get 'producer/edit'
+  end
+
+  namespace :admin do
+  get 'producer/update'
+  end
+
+  namespace :admin do
+  get 'producer/destroy'
+  end
+
+  namespace :admin do
+  get 'producer/show'
+  end
+
+  namespace :admin do
+  get 'producer/index'
+  end
+
   root to: 'about#index'
 
   get 'about' => 'about#index'

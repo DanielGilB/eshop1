@@ -1,0 +1,11 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+  <%= render :partial => 'publisher', :collection => @publishers %>
+</table>
+
+<p><%= link_to 'Add a new publisher', :action => 'new' %></p>

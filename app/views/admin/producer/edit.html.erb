@@ -1,0 +1,7 @@
+<%= form_tag :action => 'update', :id => @publisher do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Update publisher' %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @publisher %> |
+<%= link_to 'Back', :action => 'index' %>
