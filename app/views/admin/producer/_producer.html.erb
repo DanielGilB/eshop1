@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to producer.name, :action => 'show', :id => producer %></td>
+  <td><%= link_to 'Editar', :action => 'edit', :id => producer %></td>
+  <td>
+    <%= button_to 'Borrar', { :action => 'destroy', :id => producer },
+        data: { confirm: "¿Estas seguro de que quieres borrar la Productora #{producer.name}?" } %>
+  </td>
+</tr>

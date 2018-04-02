@@ -1,39 +1,21 @@
 Rails.application.routes.draw do
   
-  namespace :admin do
-  get 'producer/new'
-  end
+   root :to => 'about#index'
 
-  namespace :admin do
-  get 'producer/create'
-  end
+   get 'about' => 'about#index'
+   get 'admin/producer' => 'admin/producer#index'
 
-  namespace :admin do
-  get 'producer/edit'
-  end
+   get 'about/index' # generada por defecto al crear la plantilla desde rails
 
-  namespace :admin do
-  get 'producer/update'
-  end
-
-  namespace :admin do
-  get 'producer/destroy'
-  end
-
-  namespace :admin do
-  get 'producer/show'
-  end
-
-  namespace :admin do
-  get 'producer/index'
-  end
-
-  root to: 'about#index'
-
-  get 'about' => 'about#index'
-  get 'about/index' # generada por defecto al crear la plantilla desde rails
-
-
+   get 'admin/producer/new'
+   post 'admin/producer/create'
+   get 'admin/producer/edit'
+   post 'admin/producer/update'
+   post 'admin/producer/destroy'
+   get 'admin/producer/show'
+   get 'admin/producer/show:id' => 'admin/producer#show'
+   get 'admin/producer/index'
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -89,4 +71,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end

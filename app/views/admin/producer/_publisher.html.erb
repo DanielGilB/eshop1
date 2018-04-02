@@ -1,8 +1,0 @@
-<tr>
-  <td><%= link_to publisher.name, :action => 'show', :id => publisher %></td>
-  <td><%= link_to 'Edit', :action => 'edit', :id => publisher %></td>
-  <td>
-    <%= button_to 'Delete', { :action => 'destroy', :id => publisher },
-        data: { confirm: "Are you sure you want to delete publisher #{publisher.name}?" } %>
-  </td>
-</tr>
