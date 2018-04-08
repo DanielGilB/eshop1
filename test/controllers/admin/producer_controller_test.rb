@@ -36,12 +36,12 @@ class Admin::ProducerControllerTest < ActionController::TestCase
   test "destroy" do
     assert_difference(Producer, :count, -1) do
       post :destroy, :id => 1
-      assert_equal flash[:notice], 'Succesfully deleted producer Apress.'
+      assert_equal flash[:notice], 'La Productora Apress fue eliminada con éxito.'
       assert_response :redirect
       assert_redirected_to :action => 'index'
       get :index
       assert_response :success
-      assert_select 'div#notice', 'Succesfully deleted producer Apress.'
+      assert_select 'div#notice', 'La Productora Apress fue eliminada con éxito.'
       # assert_tag :tag => 'div', :attributes => {:id => 'notice'},
       #            :content => 'Succesfully deleted producer Apress.'
     end
