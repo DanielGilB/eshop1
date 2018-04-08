@@ -52,7 +52,7 @@ class Admin::ProducerControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'admin/producer/show'
     assert_not_nil assigns(:producer)
-    assert assigns(:producers).valid?
+    assert assigns(:producer).valid?
     assert_select 'div#content' do
       assert_select 'h1', Producer.find(1).name
     end
