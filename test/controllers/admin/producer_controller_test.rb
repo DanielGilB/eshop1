@@ -10,7 +10,7 @@ class Admin::ProducerControllerTest < ActionController::TestCase
 
   test "create" do
     num_producers = Producer.count
-    post :create, :producers => { :name => 'The Monopoly Publishing Company' }
+    post :create, :producer => { :name => 'The Monopoly Publishing Company' }
     assert_response :redirect
     assert_redirected_to :action => 'index'
     assert_equal num_producers + 1, Producer.count
@@ -27,7 +27,7 @@ class Admin::ProducerControllerTest < ActionController::TestCase
   end
 
   test "update" do
-    post :update, :id => 1, :producers => { :name => 'Apress.com' }
+    post :update, :id => 1, :producer => { :name => 'Apress.com' }
     assert_response :redirect
     assert_redirected_to :action => 'show', :id => 1
     assert_equal 'Apress.com', Producer.find(1).name
@@ -51,7 +51,7 @@ class Admin::ProducerControllerTest < ActionController::TestCase
     get :show, :id => 1
     assert_response :success
     assert_template 'admin/producer/show'
-    assert_not_nil assigns(:producers)
+    assert_not_nil assigns(:producer)
     assert assigns(:producers).valid?
     assert_select 'div#content' do
       assert_select 'h1', Producer.find(1).name
