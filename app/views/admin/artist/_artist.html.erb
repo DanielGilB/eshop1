@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to artist.name, :action => 'show', :id => artist %></td>
+  <td><%= link_to 'Edit', :action => 'edit', :id => artist %></td>
+  <td>
+    <%= button_to 'Delete', { :action => 'destroy', :id => artist },
+        data: { confirm: "Are you sure you want to delete artist #{artist.name}?" } %>   
+  </td>
+</tr>

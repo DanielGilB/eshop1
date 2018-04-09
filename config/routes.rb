@@ -1,20 +1,32 @@
 Rails.application.routes.draw do
   
-   root :to => 'about#index'
+  root :to => 'about#index'
 
-   get 'about' => 'about#index'
-   get 'admin/producer' => 'admin/producer#index'
+  get 'about' => 'about#index'
+  get 'admin/producer' => 'admin/producer#index'
+  get 'admin/artist' => 'admin/artist#index'
 
-   get 'about/index' # generada por defecto al crear la plantilla desde rails
+  get 'about/index' # generada por defecto al crear la plantilla desde rails
 
-   get 'admin/producer/new'
-   post 'admin/producer/create'
-   get 'admin/producer/edit'
-   post 'admin/producer/update'
-   post 'admin/producer/destroy'
-   get 'admin/producer/show'
-   get 'admin/producer/show:id' => 'admin/producer#show'
-   get 'admin/producer/index'
+  get 'admin/producer/new'
+  post 'admin/producer/create'
+  get 'admin/producer/edit'
+  post 'admin/producer/update'
+  post 'admin/producer/destroy'
+  get 'admin/producer/show'
+  get 'admin/producer/show:id' => 'admin/producer#show'
+  get 'admin/producer/index'
+
+
+  get 'admin/artist/new'
+  post 'admin/artist/create'
+  get 'admin/artist/edit'
+  post 'admin/artist/update'
+  post 'admin/artist/destroy'
+  get 'admin/artist/show'
+  get 'admin/artist/show/:id' => 'admin/artist#show'
+  get 'admin/artist/index'
+
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

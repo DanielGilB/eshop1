@@ -1,0 +1,7 @@
+<%= form_tag :action => 'update', :id => @artist do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Update artist' %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @artist %> |
+<%= link_to 'Back', :action => 'index' %>
