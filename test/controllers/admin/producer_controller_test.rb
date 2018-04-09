@@ -23,7 +23,6 @@ class Admin::ProducerControllerTest < ActionController::TestCase
       assert_select '[name=?]', 'producer[name]'
       assert_select '[value=?]', 'Apress'
     end
-    # assert_tag :tag => 'input', :attributes => { :name => 'producer[name]', :value => 'Apress' }
   end
 
   test "update" do
@@ -42,8 +41,6 @@ class Admin::ProducerControllerTest < ActionController::TestCase
       get :index
       assert_response :success
       assert_select 'div#notice', 'La Productora Apress fue eliminada con éxito.'
-      # assert_tag :tag => 'div', :attributes => {:id => 'notice'},
-      #            :content => 'Succesfully deleted producer Apress.'
     end
   end
 
@@ -56,7 +53,6 @@ class Admin::ProducerControllerTest < ActionController::TestCase
     assert_select 'div#content' do
       assert_select 'h1', Producer.find(1).name
     end
-    # assert_tag "h1", :content => Producer.find(1).name
   end
 
   test "index" do
@@ -65,10 +61,8 @@ class Admin::ProducerControllerTest < ActionController::TestCase
     assert_select 'table' do
       assert_select 'tr', Producer.count + 1
     end
-    # assert_tag :tag => 'table', :children => { :count => Producer.count + 1, :only => {:tag => 'tr'} }
     Producer.find_each do |a|
       assert_select 'td', a.name
-      # assert_tag :tag => 'td', :content => a.name
     end
   end
 end
