@@ -7,26 +7,26 @@ class Admin::ArtistController < ApplicationController
   def create
     @artist = Artist.new(artist_params)
     if @artist.save
-      flash[:notice] = "Artist #{@artist.name} was succesfully created."
+      flash[:notice] = "Artista #{@artist.name} insertado con éxito."
       redirect_to :action => 'index'
     else
-      @page_title = 'Create new artist'
+      @page_title = 'Insertar nuevo artista'
       render :action => 'new'
     end
   end
 
   def edit
     @artist = Artist.find(params[:id])
-    @page_title = 'Edit artist'
+    @page_title = 'Editar artista'
   end
 
   def update
     @artist = Artist.find(params[:id])
     if @artist.update_attributes(artist_params)
-      flash[:notice] = "Artist #{@artist.name} was succesfully updated."
+      flash[:notice] = "El artista #{@artist.name} fue actualizado con éxito."
       redirect_to :action => 'show', :id => @artist
     else
-      @page_title = 'Edit artist'
+      @page_title = 'Editar artista'
       render :action => 'edit'
     end
   end
@@ -34,7 +34,7 @@ class Admin::ArtistController < ApplicationController
   def destroy
     @artist = Artist.find(params[:id])
     @artist.destroy
-    flash[:notice] = "Succesfully deleted artist #{@artist.name}."
+    flash[:notice] = "Artista #{@artist.name} eliminado con éxito."
     redirect_to :action => 'index'
   end
 
@@ -45,7 +45,7 @@ class Admin::ArtistController < ApplicationController
 
   def index
     @artists = Artist.all
-    @page_title = 'Listing artists'
+    @page_title = 'Mostrando artistas'
   end
 
   private

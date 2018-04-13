@@ -7,27 +7,25 @@ class Admin::ArtistControllerTest < ActionController::TestCase
     get :new
     assert_template 'admin/artist/new'
     assert_select 'div#content' do
-      assert_select 'h1', 'Create new author'
+      assert_select 'h1', 'Create new artist'
       assert_select "form[action=\"/admin/artist/create\"]"
     end
-    # assert_tag 'h1', :content => 'Create new author'
-    # assert_tag 'form', :attributes => { :action => '/admin/author/create' }
   end
 
   test "create" do
     get :new    
     assert_template 'admin/artist/new'
-    assert_difference(Author, :count) do
-      post :create, :author => {:first_name => 'Joel', :last_name => 'Spolsky'}
+    assert_difference(Artist, :count) do
+      post :create, :artist => {:first_name => 'Joel', :last_name => 'Spolsky'}
       assert_response :redirect
       assert_redirected_to :action => 'index'      
     end
-    assert_equal 'Author Joel Spolsky was succesfully created.', flash[:notice]
+    assert_equal 'Artista Joel Spolsky insertado con éxito.', flash[:notice]
   end
 
   test "failing_create" do
     assert_no_difference(Artist, :count) do
-      post :create, :author => {:first_name => 'Joel'}
+      post :create, :artist => {:first_name => 'J'}
       assert_response :success
       assert_template 'admin/artist/new'
       assert_select "div[class=\"field_with_errors\"]"
@@ -46,7 +44,6 @@ class Admin::ArtistControllerTest < ActionController::TestCase
       assert_select '[name=?]', 'artist[last_name]'
       assert_select '[value=?]', 'Spolsky'
     end
-    # assert_tag :tag => 'input', :attributes => { :name => 'author[last_name]', :value => 'Spolsky' }
   end
 
   test "update" do
@@ -59,14 +56,12 @@ class Admin::ArtistControllerTest < ActionController::TestCase
   test "test_destroy" do
     assert_difference(Artist, :count, -1) do
       post :destroy, :id => 1
-      assert_equal flash[:notice], 'Succesfully deleted author Joel Spolsky.'
+      assert_equal flash[:notice], 'Artista Joel Spolsky eliminado con éxito.'
       assert_response :redirect
       assert_redirected_to :action => 'index'
       get :index
       assert_response :success
-      assert_select 'div#notice', 'Succesfully deleted author Joel Spolsky.'
-      # assert_tag :tag => 'div', :attributes => {:id => 'notice'},
-      #   :content => 'Succesfully deleted author Joel Spolsky.'
+      assert_select 'div#notice', 'Artista Joel Spolsky eliminado con éxito.'
     end
   end
 
@@ -78,7 +73,6 @@ class Admin::ArtistControllerTest < ActionController::TestCase
     assert_select 'div#content' do
       assert_select 'h1', Artist.find(1).name
     end
-    # assert_tag "h1", :content => Author.find(1).name
   end
 
   test "index" do
@@ -87,10 +81,8 @@ class Admin::ArtistControllerTest < ActionController::TestCase
     assert_select 'table' do
       assert_select 'tr', Artist.count + 1
     end
-    # assert_tag :tag => 'table', :children => { :count => Author.count + 1, :only => {:tag => 'tr'} }
     Artist.find_each do |a|
       assert_select 'td', a.name
-      # assert_tag :tag => 'td', :content => a.name
     end
   end
 end
