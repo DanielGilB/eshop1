@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <th><a href="?sort_by=producer_id">Producer</a></th>
+    <th><a href="?sort_by=title">Title</a></th>
+    <th>Tags</th>
+    <th><a href="?sort_by=serial_number">SERIAL_NUMBER</a></th>
+    <th colspan="3"></th>
+  </tr>
+
+<% @discs.each do |disc| %>
+  <tr>
+    <td><%= h disc.producer.name %></td>
+    <td><%= h disc.title %></td>
+    <td><%= h disc.serial_number %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => disc %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => disc  %></td>
+    <td><%= button_to 'Delete', { :action => 'destroy', :id => disc },
+                      data: { confirm: "Are you sure you want to delete disc #{disc.title}?" } %></td>
+  </tr>
+<% end %>
+</table>
+<br/>
+<%= will_paginate @discs, :page_links => false, :link_separator => ' | ',
+                          :previous_label => 'Previous page', :next_label => 'Next page' %>
+<p><%= link_to 'Add a new disc', :action => 'new' %></p>

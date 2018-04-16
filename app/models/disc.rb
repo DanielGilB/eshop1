@@ -13,7 +13,6 @@ class Disc < ActiveRecord::Base
   validates_presence_of :producer
   validates_presence_of :artists
   validates_presence_of :produced_at
-  validates_numericality_of :page_count, :only_integer => true
   validates_numericality_of :price
   validates_length_of :serial_number, :in => 1..5
   validates_uniqueness_of :serial_number

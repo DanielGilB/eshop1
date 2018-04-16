@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'about' => 'about#index'
   get 'admin/producer' => 'admin/producer#index'
   get 'admin/artist' => 'admin/artist#index'
+  get 'admin/disc' => 'admin/disc#index'
 
   get 'about/index' # generada por defecto al crear la plantilla desde rails
 
@@ -26,6 +27,15 @@ Rails.application.routes.draw do
   get 'admin/artist/show'
   get 'admin/artist/show/:id' => 'admin/artist#show'
   get 'admin/artist/index'
+
+  get 'admin/disc/new'
+  post 'admin/disc/create'
+  get 'admin/disc/edit'
+  post 'admin/disc/update'
+  post 'admin/disc/destroy'
+  get 'admin/disc/show'
+  get 'admin/disc/show/:id' => 'admin/artist#show'
+  get 'admin/disc/index'
 
 end
 
