@@ -5,9 +5,9 @@ class Disc < ActiveRecord::Base
   #has_many :cart_items
   #has_many :carts, :through => :cart_items
 
-  #has_attached_file :cover_image
-  #validates_attachment :cover_image,
-  #:content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
+  has_attached_file :cover_image
+  validates_attachment :cover_image,
+  :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
 
   validates_length_of :title, :in => 1..255
   validates_presence_of :producer
@@ -22,6 +22,6 @@ class Disc < ActiveRecord::Base
   end
 
   #def self.latest(num)
-  #  all.order("books.id desc").includes(:artists, :producer).limit(num)
+  #  all.order("discs.id desc").includes(:artists, :producer).limit(num)
   #end
 end

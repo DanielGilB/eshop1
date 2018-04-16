@@ -62,6 +62,6 @@ class Admin::DiscController < ApplicationController
 
     def disc_params
       params.require(:disc).permit(:title, :producer_id, :produced_at, { :artist_ids => [] },
-                                   :serial_number, :blurb, :price) # añadir :cover_image
+                                   :serial_number, :blurb, :price, :cover_image)
     end
 end

@@ -45,4 +45,12 @@
   <%= text_field 'disc', 'price' %></p>
 </div>
 
-<!-- FALTA IMAGEN -->
+<div class="field">
+  <% if @disc.cover_image.exists? then %>
+    <dd><%= image_tag @disc.cover_image.url %></dd>
+  <% else %>
+    <p> There is no cover image attached. Please upload one. </p>
+  <% end %>
+  <p><label for="book_cover_image">Cover image</label><br/>
+  <%= file_field 'disc', :cover_image %></p>
+</div>
