@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProducerTest < ActiveSupport::TestCase
+class DiscTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
