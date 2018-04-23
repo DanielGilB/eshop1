@@ -1,5 +1,5 @@
 <dl>
-  <dt>Titulo</dt>
+  <dt>Título</dt>
   <dd><%= @disc.title %></dd>
   <dt>Productora</dt>
   <dd><%= @disc.producer.name %></dd>
@@ -7,7 +7,7 @@
   <dd><%= @disc.produced_at.strftime("%d/%m/%Y at %I:%M%p") %></dd>
   <dt>Artista</dt>
   <dd><%= @disc.artist_names %></dd>
-  <dt>NÚMERO DE SERIE</dt>
+  <dt>Número de serie</dt>
   <dd><%= @disc.serial_number %></dd>
   <dt>Descripción</dt>
   <%= RedCloth.new(@disc.blurb).to_html.html_safe if @disc.blurb %>
