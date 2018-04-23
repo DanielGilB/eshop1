@@ -1,18 +1,16 @@
-<h2>by <%=@disc.author_names %></h2>
+<h2>de <%=@disc.artist_names %></h2>
 <% if @disc.cover_image.exists? then %>
   <dd><%= image_tag @disc.cover_image.url %></dd>
 <% else %>
-  <p>No cover image available.</p>
+  <p>No hay imágen de portada.</p>
 <% end %>
 <dl>
-  <dt>Price</dt>
+  <dt>Precio</dt>
   <dd><%= sprintf("%0.2f", @disc.price) %></dd>
-  <dt>Page count</dt>
-  <dd><%= @disc.page_count %></dd>
-  <dt>Pubisher</dt>
-  <dd><%= @disc.publisher.name %></dd>
-  <dt>Blurb</dt>
+  <dt>Productora</dt>
+  <dd><%= @disc.producer.name %></dd>
+  <dt>Descripción</dt>
   <%= RedCloth.new(@disc.blurb).to_html.html_safe if @disc.blurb %>
 </dl>
 
-<p><%= link_to 'Catalog', :action => 'index' %> </p>
+<p><%= link_to 'Catálogo', :action => 'index' %> </p>
