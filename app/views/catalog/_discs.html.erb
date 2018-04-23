@@ -4,9 +4,9 @@
       <%= link_to disc.title, :action => 'show', :id => disc %>
     </dt>
     <% for artist in disc.artists %>
-      <dd><%= artist.last_name %>, <%= artist.first_name %></dd>
+      <dd><%= artist.first_name %> <%= artist.last_name %></dd>
     <% end %>
-    <dd><%= sprintf("Price: %.2f €", disc.price) %> </dd>
-    <dd><small>Producer: <%= disc.producer.name %></small></dd>
+    <dd><%= sprintf("Precio: %.2f €", disc.price) %> </dd>
+    <dd><small>Productora: <%= disc.producer.name %></small></dd>
   <% end %>
 </dl>
