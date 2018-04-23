@@ -1,6 +1,6 @@
 <%= form_tag "/admin/disc/create?id=#{@disc.id}", :multipart => true do %>
   <%= render :partial => 'form' %>   
-  <%= submit_tag 'Create disc' %>
+  <%= submit_tag 'Añadir disco' %>
 <% end %>
 
-<%= link_to 'Back', :action => 'index' %>
+<%= link_to 'Atrás', :action => 'index' %>
