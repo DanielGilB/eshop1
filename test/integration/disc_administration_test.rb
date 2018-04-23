@@ -14,7 +14,6 @@ class DiscAdministrationTest < ActionDispatch::IntegrationTest
       :produced_at => Time.now,
       :serial_number => '123',
       :blurb => 'A new Disc of Ruby',
-      #:page_count => 325,
       :price => 45.5
     }
 
@@ -50,11 +49,9 @@ class DiscAdministrationTest < ActionDispatch::IntegrationTest
       assert_select 'select#disc_producer_id' do
         assert_select "option[value=\"#{producer.id}\"]", producer.name
       end
-      # assert_tag :tag => 'option', :attributes => { :value => producer.id }
       assert_select "select[name=\"disc[artist_ids][]\"]" do
         assert_select "option[value=\"#{artist.id}\"]", artist.name
       end
-      # assert_tag :tag => 'select', :attributes => { :name => 'disc[artist_ids][]' }
       post '/admin/disc/create', parameters
       assert_response :redirect
       follow_redirect!
@@ -63,7 +60,6 @@ class DiscAdministrationTest < ActionDispatch::IntegrationTest
       page = Disc.all.count / 5 + 1
       get "/admin/disc/index/?page=#{page}"
       assert_select 'td', parameters[:disc][:title]
-      # assert_tag :tag => 'td', :content => parameters[:disc][:title]
       disc = Disc.find_by_title(parameters[:disc][:title])
       return disc;
     end

@@ -1,0 +1,12 @@
+<dl id = 'discs'>
+  <% for disc in @discs %>
+    <dt>
+      <%= link_to disc.title, :action => 'show', :id => disc %>
+    </dt>
+    <% for artist in disc.artists %>
+      <dd><%= artist.last_name %>, <%= artist.first_name %></dd>
+    <% end %>
+    <dd><%= sprintf("Price: %.2f €", disc.price) %> </dd>
+    <dd><small>Producer: <%= disc.producer.name %></small></dd>
+  <% end %>
+</dl>

@@ -1,2 +1,3 @@
-<h1>Catalog#index</h1>
-<p>Find me in app/views/catalog/index.html.erb</p>
+<%= render :partial => 'discs' %>
+<%= will_paginate @discs, :page_links => false, :link_separator => ' | ',
+                          :previous_label => 'Previous page', :next_label => 'Next page' %>

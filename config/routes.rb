@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'catalog/index'
-
-  get 'catalog/show'
-
-  get 'catalog/latest'
 
   root :to => 'about#index'
 
@@ -12,6 +7,7 @@ Rails.application.routes.draw do
   get 'admin/producer' => 'admin/producer#index'
   get 'admin/artist' => 'admin/artist#index'
   get 'admin/disc' => 'admin/disc#index'
+  get 'catalog' => 'catalog#index'
 
   get 'about/index' # generada por defecto al crear la plantilla desde rails
 
@@ -42,6 +38,12 @@ Rails.application.routes.draw do
   get 'admin/disc/show'
   get 'admin/disc/show/:id' => 'admin/artist#show'
   get 'admin/disc/index'
+
+
+  get 'catalog/show'
+  get 'catalog/show/:id' => 'catalog#show'
+  get 'catalog/index'
+  get 'catalog/latest'
 
 end
 
