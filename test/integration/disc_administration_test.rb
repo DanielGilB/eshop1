@@ -87,7 +87,7 @@ class DiscAdministrationTest < ActionDispatch::IntegrationTest
     end
 
     def show_disc(disc)
-      get "/admin/disc/show/#{disc.id}"
+      get "/admin/disc/show?id=#{disc.id}"
       assert_response :success
       assert_template 'admin/disc/show'
     end
