@@ -13,7 +13,6 @@ class DiscTest < ActiveSupport::TestCase
     assert disc.errors[:produced_at]
     assert disc.errors[:serial_number]
     assert disc.errors[:blurb]
-    #assert disc.errors[:songs]
     assert disc.errors[:price]
   end
 
@@ -25,7 +24,6 @@ class DiscTest < ActiveSupport::TestCase
       :produced_at => Time.now,
       :serial_number => '123',
       :blurb => 'A great disc',
-      #:songs => 375,
       :price => 45.5
     )
   assert disc.save
@@ -42,7 +40,6 @@ class DiscTest < ActiveSupport::TestCase
       :produced_at => Time.now,
       :serial_number => '124',
       :blurb => 'E-Commerce on Rails',
-      #:songs => 400,
       :price => 55.5
     )
     apress.discs << disc
@@ -60,7 +57,6 @@ class DiscTest < ActiveSupport::TestCase
       :producer_id => Producer.find_by_name("Apress").id,
       :produced_at => Time.now,
       :serial_number => '125',
-      #:songs => 400,
       :price => 55.5
     )
     assert disc.save

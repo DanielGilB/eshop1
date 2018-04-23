@@ -27,7 +27,6 @@ class DiscAdministrationTest < ActionDispatch::IntegrationTest
       :produced_at => Time.now,
       :serial_number => '124',
       :blurb => 'A very new Disc of Ruby',
-      #:page_count => 350,
       :price => 50
     }
 
