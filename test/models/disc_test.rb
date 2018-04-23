@@ -6,14 +6,14 @@ class DiscTest < ActiveSupport::TestCase
   test "failing_create" do
     disc = Disc.new
     assert_equal false, disc.save
-    assert_equal 8, disc.errors.count
+    assert_equal 6, disc.errors.count
     assert disc.errors[:title]
     assert disc.errors[:producer]
     assert disc.errors[:artists]
     assert disc.errors[:produced_at]
-    assert disc.errors[:isbn]
+    assert disc.errors[:serial_number]
     assert disc.errors[:blurb]
-    assert disc.errors[:page_count]
+    #assert disc.errors[:songs]
     assert disc.errors[:price]
   end
 
@@ -23,9 +23,9 @@ class DiscTest < ActiveSupport::TestCase
       :artists => Artist.all,
       :producer_id => Producer.find(1).id,
       :produced_at => Time.now,
-      :isbn => '123-123-123-1',
+      :serial_number => '123',
       :blurb => 'A great disc',
-      :page_count => 375,
+      #:songs => 375,
       :price => 45.5
     )
   assert disc.save
@@ -38,11 +38,11 @@ class DiscTest < ActiveSupport::TestCase
       :title => 'Pro Rails E-Commerce 8th Edition',
       :artists => [Artist.find_by_first_name_and_last_name('Joel', 'Spolsky'),
                    Artist.find_by_first_name_and_last_name('Jeremy', 'Keith')],
-      :producer_id => apress.id,
+      #:producer_id => apress.id,
       :produced_at => Time.now,
-      :isbn => '123-123-123-x',
+      :serial_number => '124',
       :blurb => 'E-Commerce on Rails',
-      :page_count => 400,
+      #:songs => 400,
       :price => 55.5
     )
     apress.discs << disc
@@ -59,9 +59,8 @@ class DiscTest < ActiveSupport::TestCase
                    Artist.find_by_first_name_and_last_name('Jeremy', 'Keith')],
       :producer_id => Producer.find_by_name("Apress").id,
       :produced_at => Time.now,
-      :isbn => '123-123-123-x',
-      :blurb => 'E-Commerce on Rails',
-      :page_count => 400,
+      :serial_number => '125',
+      #:songs => 400,
       :price => 55.5
     )
     assert disc.save

@@ -12,9 +12,9 @@ class DiscAdministrationTest < ActionDispatch::IntegrationTest
       :producer_id => producer.id,
       :artist_ids => [artist.id],
       :produced_at => Time.now,
-      :isbn => '123-123-123-X',
+      :serial_number => '123',
       :blurb => 'A new Disc of Ruby',
-      :page_count => 325,
+      #:page_count => 325,
       :price => 45.5
     }
 
@@ -26,9 +26,9 @@ class DiscAdministrationTest < ActionDispatch::IntegrationTest
       :producer_id => producer.id,
       :artist_ids => [artist.id],
       :produced_at => Time.now,
-      :isbn => '123-123-123-X',
+      :serial_number => '124',
       :blurb => 'A very new Disc of Ruby',
-      :page_count => 350,
+      #:page_count => 350,
       :price => 50
     }
 

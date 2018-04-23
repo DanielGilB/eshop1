@@ -3,69 +3,69 @@ pro_rails_ecommerce_1:
   id: 1
   title: Pro Rails E-Commerce
   producer_id: 1
-  serial_number: 199-19
+  serial_number: 199
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 45.0
 pro_rails_ecommerce_2:
   id: 2
   title: Pro Rails E-Commerce 2nd Edition
   producer_id: 1
-  serial_number: 199-199-199-2
+  serial_number: 198
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 65
 pro_rails_ecommerce_3:
   id: 3
   title: Pro Rails E-Commerce 3rd Edition
   producer_id: 1
-  serial_number: 199-199-199-3
+  serial_number: 197
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 85
 pro_rails_ecommerce_4:
   id: 4
   title: Pro Rails E-Commerce 4th Edition
   producer_id: 1
-  serial_number: 199-199-199-4
+  serial_number: 196
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 105
 pro_rails_ecommerce_5:
   id: 5
   title: Pro Rails E-Commerce 5th Edition
   producer_id: 1
-  serial_number: 199-199-199-5
+  serial_number: 195
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 125
 pro_rails_ecommerce_6:
   id: 6
   title: Pro Rails E-Commerce 6th Edition
   producer_id: 1
-  serial_number: 199-199-199-6
+  serial_number: 194
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 145
 pro_rails_ecommerce_7:
   id: 7
   title: Pro Rails E-Commerce 7th Edition
   producer_id: 2
-  serial_number: 199-199-199-7
+  serial_number: 193
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 165
 ruby_for_dummies_8:
   id: 8
   title: Ruby for Dummies
   producer_id: 1
-  serial_number: 199-199-199-8
+  serial_number: 192
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 185
 pride_and_prejudice_9:
   id: 9
   title: Pride and Prejudice
   producer_id: 2
-  serial_number: 299-299-299-1
+  serial_number: 291
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 40
 the_idiot_10:
   id: 10
   title: The Idiot
   producer_id: 2
-  serial_number: 299-299-299-2
+  serial_number: 290
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
   price: 40
