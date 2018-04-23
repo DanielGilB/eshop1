@@ -1,26 +1,26 @@
 <dl>
-  <dt>Title</dt>
+  <dt>Titulo</dt>
   <dd><%= @disc.title %></dd>
-  <dt>Producer</dt>
+  <dt>Productora</dt>
   <dd><%= @disc.producer.name %></dd>
-  <dt>Produced at</dt>
+  <dt>Producido el:</dt>
   <dd><%= @disc.produced_at.strftime("%d/%m/%Y at %I:%M%p") %></dd>
-  <dt>Artists</dt>
+  <dt>Artista</dt>
   <dd><%= @disc.artist_names %></dd>
-  <dt>SERIAL_NUMBER</dt>
+  <dt>NÚMERO DE SERIE</dt>
   <dd><%= @disc.serial_number %></dd>
-  <dt>Blurb</dt>
+  <dt>Descripción</dt>
   <%= RedCloth.new(@disc.blurb).to_html.html_safe if @disc.blurb %>
-  <dt>Price</dt>
+  <dt>Precio</dt>
   <dd><%= @disc.price %></dd>
-  <dt>Cover image</dt>
+  <dt>Portada</dt>
   <% if @disc.cover_image.exists? then %>
     <dd><%= image_tag @disc.cover_image.url %></dd>
   <% else %>
     <dd><%= image_tag '/missing.png' %></dd>
-    <p> There is no cover image attached. Please upload one. </p>
+    <p> No hay una portada adjuntada. Porfavor seleccione una. </p>
   <% end %>
 </dl>
 
-<%= link_to 'Edit', :action => 'edit', :id => @disc %> |
-<%= link_to 'Back', :action => 'index' %>
+<%= link_to 'Editar', :action => 'edit', :id => @disc %> |
+<%= link_to 'Atrás', :action => 'index' %>

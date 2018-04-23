@@ -1,0 +1,50 @@
+joel_spolsky_and_pro_rails_ecommerce_1:
+  created_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  updated_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  artist_id: 1
+  disc_id: 1
+jeremy_keith_and_pro_rails_ecommerce_2:
+  created_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  updated_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  artist_id: 2
+  disc_id: 2
+jeremy_keith_and_pro_rails_ecommerce_3:
+  created_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  updated_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  artist_id: 2
+  disc_id: 3
+jeremy_keith_and_pro_rails_ecommerce_4:
+  created_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  updated_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  artist_id: 2
+  disc_id: 4
+jeremy_keith_and_pro_rails_ecommerce_5:
+  created_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  updated_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  artist_id: 2
+  disc_id: 5
+jeremy_keith_and_pro_rails_ecommerce_6:
+  created_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  updated_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  artist_id: 2
+  disc_id: 6
+jeremy_keith_and_pro_rails_ecommerce_7:
+  created_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  updated_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  artist_id: 2
+  disc_id: 7
+jarkko_laine_and_ruby_for_dummies:
+  created_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  updated_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  artist_id: 3
+  disc_id: 8
+christian_hellsten_and_pride_and_prejudice:
+  created_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  updated_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  artist_id: 4
+  disc_id: 9
+leo_tolstoy_and_the_idiot:
+  created_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  updated_at: <%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>
+  artist_id: 5
+  disc_id: 10

@@ -45,7 +45,7 @@ class Admin::ArtistController < ApplicationController
 
   def index
     @artists = Artist.all
-    @page_title = 'Mostrando artistas'
+    @page_title = 'Mostrando Artistas'
   end
 
   private

@@ -2,17 +2,17 @@ class Admin::DiscController < ApplicationController
   def new
     load_data
     @disc = Disc.new
-    @page_title = 'Create new disc'
+    @page_title = 'Insertar disco.'
   end
 
   def create
     @disc = Disc.new(disc_params)
     if @disc.save
-      flash[:notice] = "Disc #{@disc.title} was succesfully created."
+      flash[:notice] = "Disco #{@disc.title} insertado correctamente."
       redirect_to :action => 'index'
     else
       load_data
-      @page_title = 'Create new disc'
+      @page_title = 'Insertar disco.'
       render :action => 'new'
     end
   end
@@ -20,17 +20,17 @@ class Admin::DiscController < ApplicationController
   def edit
     load_data
     @disc = Disc.find(params[:id])
-    @page_title = 'Edit disc'
+    @page_title = 'Editar disco.'
   end
 
   def update
     @disc = Disc.find(params[:id])
     if @disc.update_attributes(disc_params)
-      flash[:notice] = "Disc #{@disc.title} was succesfully updated."
+      flash[:notice] = "Disco #{@disc.title} actualizado correctamente."
       redirect_to :action => 'show', :id => @disc
     else
       load_data
-      @page_title = 'Edit disc'
+      @page_title = 'Editar disco.'
       render :action => 'edit'
     end
   end
@@ -38,7 +38,7 @@ class Admin::DiscController < ApplicationController
   def destroy
     @disc = Disc.find(params[:id])
     @disc.destroy
-    flash[:notice] = "Succesfully deleted disc #{@disc.title}."
+    flash[:notice] = "Disco #{@disc.title} eliminado correctamente."
     redirect_to :action => 'index'
   end
 
@@ -50,7 +50,7 @@ class Admin::DiscController < ApplicationController
   def index
     sort_by = params[:sort_by]
     @discs = Disc.order(sort_by).paginate(:page => params[:page], :per_page => 5)
-    @page_title = 'Listing discs'
+    @page_title = 'Mostrando Discos'
   end
 
   private

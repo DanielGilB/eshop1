@@ -10,38 +10,38 @@
 <% end %>
 
 <div class="field">
-  <p><label for="disc_title">Title</label><br/>
+  <p><label for="disc_title">Titulo</label><br/>
   <%= text_field 'disc', 'title' %></p>
 </div>
 
 <div class="field">
-  <p><label for="disc_producer">Producer</label><br/>
+  <p><label for="disc_producer">Productor</label><br/>
   <%= collection_select :disc, :producer_id, @producers, :id, :name %></p>
 </div>
   
 <div class="field">
-  <p><label for="disc[artist_ids][]">Artists</label><br/>
+  <p><label for="disc[artist_ids][]">Artista</label><br/>
   <%= select_tag 'disc[artist_ids][]', options_from_collection_for_select(@artists, :id, :name, 
       @disc.artists.collect{|artist| artist.id}), { :multiple => true, :size => 5 } %></p>
 </div>
 
 <div class="field"><p>
-  <label for="disc_produced_at">Produced at</label><br/>
+  <label for="disc_produced_at">Producido el:</label><br/>
   <%= datetime_select 'disc', 'produced_at' %></p>
 </div>
 
 <div class="field">
-  <p><label for="disc_serial_number">Serial_number</label><br/>
+  <p><label for="disc_serial_number">Número de serie</label><br/>
   <%= text_field 'disc', 'serial_number' %></p>
 </div>
 
 <div class="field">
-  <p><label for="disc_blurb">Blurb</label><br/>
+  <p><label for="disc_blurb">Descripción</label><br/>
   <%= text_area 'disc', 'blurb' %></p>
 </div>
 
 <div class="field">
-  <p><label for="disc_price">Price</label><br/>
+  <p><label for="disc_price">Precio</label><br/>
   <%= text_field 'disc', 'price' %></p>
 </div>
 
@@ -49,8 +49,8 @@
   <% if @disc.cover_image.exists? then %>
     <dd><%= image_tag @disc.cover_image.url %></dd>
   <% else %>
-    <p> There is no cover image attached. Please upload one. </p>
+    <p> No hay una portada adjuntada. Porfavor seleccione una. </p>
   <% end %>
-  <p><label for="book_cover_image">Cover image</label><br/>
+  <p><label for="book_cover_image">Portada</label><br/>
   <%= file_field 'disc', :cover_image %></p>
 </div>
