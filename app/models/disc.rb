@@ -21,7 +21,7 @@ class Disc < ActiveRecord::Base
     self.artists.map{|artist| artist.name}.join(", ")
   end
 
-  #def self.latest(num)
-  #  all.order("discs.id desc").includes(:artists, :producer).limit(num)
-  #end
+  def self.latest(num)
+    all.order("discs.id desc").includes(:artists, :producer).limit(num)
+  end
 end
