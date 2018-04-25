@@ -44,7 +44,7 @@ class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
       assert_template 'catalog/show'
       assert_select 'div#content' do
         assert_select 'h1', @disc.title
-        assert_select 'h2', "by #{@disc.artists.map{|a| a.name}.join(", ")}"
+        assert_select 'h2', "#{@disc.artists.map{|a| a.name}.join(", ")}"
       end
 
     end

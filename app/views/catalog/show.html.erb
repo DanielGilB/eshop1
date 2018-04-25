@@ -1,4 +1,4 @@
-<h2>by <%=@disc.artist_names %></h2>
+<h2><%=@disc.artist_names %></h2>
 <% if @disc.cover_image.exists? then %>
   <dd><%= image_tag @disc.cover_image.url %></dd>
 <% else %>
