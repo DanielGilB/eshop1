@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   
 
+  get 'cart/add'
+
+  get 'cart/remove'
+
+  get 'cart/clear'
+
   root :to => 'about#index'
 
   get 'about' => 'about#index'
