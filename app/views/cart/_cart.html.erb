@@ -2,7 +2,7 @@
 <%= render :partial => 'cart/cart_notice' %>
 <% end %>
 
-<h3>Your Shopping Cart</h3>
+<h3>Tu carro de compra</h3>
 
 
 <ul>
@@ -12,9 +12,9 @@
     </li>
   <% end %>
 </ul>
-<p id='cart_total'><strong>Total: <%= sprintf "%0.2f €", @cart.total %></strong></p>
+<p id='Total del carro'><strong>Total: <%= sprintf "%0.2f €", @cart.total %></strong></p>
 <% unless @cart.cart_items.empty? %>
   <p id='clear_cart_link'>
-  <b><%= link_to 'Clear cart', :controller => 'cart', :action => 'clear' %></b>
+  <b><%= link_to 'Vaciar carro', :controller => 'cart', :action => 'clear' %></b>
   </p>
 <% end %>
