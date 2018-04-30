@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <h2>de <%=@disc.artist_names %></h2>
+=======
+<h2>by <%=@disc.artist_names %></h2>
+>>>>>>> 0e00f7d4bdd07c5a73eb5663a57b3fd249d765fa
 <% if @disc.cover_image.exists? then %>
   <dd><%= image_tag @disc.cover_image.url %></dd>
 <% else %>
