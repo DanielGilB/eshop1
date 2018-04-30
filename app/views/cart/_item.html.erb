@@ -1,5 +1,5 @@
 <%= link_to item.disc.title, :action => 'show', :controller => 'catalog', :id => item.disc.id %>
 
-<%= pluralize item.amount, "disc", "discs" %>, <%= sprintf "%0.2f €", item.price * item.amount %>
+<%= pluralize item.amount, "disco", "discos" %>, <%= sprintf "%0.2f €", item.price * item.amount %>
 
-(<%= link_to '<b>Eliminar</b>'.html_safe, :controller => 'cart', :action => 'remove', :id => item.disc %>)
+(<%= link_to '<b>-</b>'.html_safe, :controller => 'cart', :action => 'remove', :id => item.disc %>)
