@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416102422) do
+ActiveRecord::Schema.define(version: 20180430095041) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "first_name", limit: 255, null: false
@@ -29,6 +29,20 @@ ActiveRecord::Schema.define(version: 20180416102422) do
 
   add_index "artists_discs", ["artist_id"], name: "fk_artists_discs_artists", using: :btree
   add_index "artists_discs", ["disc_id"], name: "fk_artists_discs_discs", using: :btree
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "disc_id",    limit: 4
+    t.integer  "cart_id",    limit: 4
+    t.float    "price",      limit: 24
+    t.integer  "amount",     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "discs", force: :cascade do |t|
     t.string   "title",                    limit: 255,   null: false
