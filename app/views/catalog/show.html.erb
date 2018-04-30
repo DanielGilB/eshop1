@@ -1,8 +1,16 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<h2>de <%=@disc.artist_names %></h2>
+=======
+<h2>by <%=@disc.artist_names %></h2>
+>>>>>>> 0e00f7d4bdd07c5a73eb5663a57b3fd249d765fa
+=======
 <h2><%=@disc.artist_names %></h2>
+>>>>>>> b9ed2a57da725cd3d0353940297b2d4916e88350
 <% if @disc.cover_image.exists? then %>
   <dd><%= image_tag @disc.cover_image.url %></dd>
 <% else %>
-  <p>No cover image available.</p>
+  <p>No hay imágen de portada.</p>
 <% end %>
 <dl>
   <dt>Precio</dt>
