@@ -1,2 +1,9 @@
-<h1>Cart#remove</h1>
-<p>Find me in app/views/cart/remove.html.erb</p>
+<strong>Por favor, confirme que una unidad de <em><%= @disc.title %></em> se eliminará de su carrito.</strong>
+<br><br>
+<div style="float: left; width: auto;">
+<%= button_to 'Cancelar', { :controller => 'catalog', :action => 'index' }, :method => :get %>
+</div>
+<div style="float: left; width: auto;">
+<%= button_to 'Confirmar', :action => 'remove', :id => params[:id] %>
+</div>
+<br>

@@ -1,2 +1,9 @@
-<h1>Cart#add</h1>
-<p>Find me in app/views/cart/add.html.erb</p>
+<strong>Por favor, confirme que <em><%= @disc.title %></em> se añadirá a su carrito.</strong>
+<br><br>
+<div style="float: left; width: auto;">
+<%= button_to 'Cancelar', { :controller => 'catalog', :action => 'index' }, :method => :get %>
+</div>
+<div style="float: left; width: auto;">
+<%= button_to 'Confirmar', :action => 'add', :id => params[:id] %>
+</div>
+<br>

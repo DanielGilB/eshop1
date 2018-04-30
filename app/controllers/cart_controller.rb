@@ -3,10 +3,10 @@ class CartController < ApplicationController
 
   def add
     @disc = Disc.find params[:id]
-    @page_title = 'Add item'
+    @page_title = 'Añadir artículo'
     if request.post?
       @item = @cart.add params[:id]
-      flash[:cart_notice] = "Added <em>#{@item.disc.title}</em>."
+      flash[:cart_notice] = "Añadido <em>#{@item.disc.title}</em>."
       redirect_to :controller => 'catalog'
     else
       render :controller => 'cart', :action => 'add', :template => 'cart/add'
@@ -15,10 +15,10 @@ class CartController < ApplicationController
 
   def remove
     @disc = Disc.find params[:id]
-    @page_title = 'Remove item'
+    @page_title = 'Eliminar artículo'
     if request.post?
       @item = @cart.remove params[:id]
-      flash[:cart_notice] = "Removed 1 <em>#{@item.disc.title}</em>."
+      flash[:cart_notice] = "Eliminado 1 <em>#{@item.disc.title}</em>."
       redirect_to :controller => 'catalog'
     else
       render :controller => 'cart', :action => 'remove'
@@ -26,10 +26,10 @@ class CartController < ApplicationController
   end
 
   def clear
-    @page_title = 'Clear cart'
+    @page_title = 'Vaciar carrito'
     if request.post?
       @cart.cart_items.destroy_all
-      flash[:cart_notice] = "Cleared cart."
+      flash[:cart_notice] = "Carrito vaciado."
       redirect_to :controller => 'catalog'
     else
       render :controller => 'cart', :action => 'clear'

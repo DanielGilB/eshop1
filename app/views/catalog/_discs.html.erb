@@ -2,6 +2,7 @@
   <% for disc in @discs %>
     <dt>
       <%= link_to disc.title, :action => 'show', :id => disc %>
+      <%= link_to '(Añadir al carrito)', :controller => 'cart', :action => 'add', :id => disc %>
     </dt>
     <% for artist in disc.artists %>
       <dd><%= artist.first_name %> <%= artist.last_name %></dd>
