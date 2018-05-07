@@ -6,6 +6,12 @@ gem 'RedCloth', '4.2.9'
 
 gem 'paperclip', '4.3.2'
 
+gem 'countries', '0.9.3', :require => 'iso3166'
+
+gem 'country_select', '1.3.1'
+
+gem 'activemerchant', '1.56.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use mysql as the database for Active Record
