@@ -5,11 +5,19 @@ require "active_merchant/billing/rails"
                 :card_verification_value
 
   has_many :order_items
+<<<<<<< HEAD
   has_many :books, :through => :order_items
 
   validates_presence_of :order_items,
                         :message => 'Your shopping cart is empty! ' +
                                     'Please add at least one book to it before submitting the order.'
+=======
+  has_many :discs, :through => :order_items
+
+  validates_presence_of :order_items,
+                        :message => '¿Tu carrito está vacio! ' +
+                                    'Por favor añada al menos un disco antes de realizar el pedidor.'
+>>>>>>> 418e4e7b4d1fce0f538e2fd8afb251d783b33877
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_length_of :phone_number, :in => 7..20
 
@@ -39,7 +47,11 @@ require "active_merchant/billing/rails"
 
   def process
     begin
+<<<<<<< HEAD
       raise 'A closed order cannot be processed again' if self.closed?
+=======
+      raise 'Un pedido realizado no puede ser procesado de nuevo' if self.closed?
+>>>>>>> 418e4e7b4d1fce0f538e2fd8afb251d783b33877
       active_merchant_payment
     rescue => e
       logger.error("Order #{id} failed due to raised exception: #{e}.")
@@ -91,8 +103,13 @@ require "active_merchant/billing/rails"
 
     if creditcard.valid? # validating the card automatically detects the card type
       gateway = ActiveMerchant::Billing::AuthorizeNetGateway.new( # use the test account
+<<<<<<< HEAD
         :login    => 'RubyRails1',
         :password => 'RubyRails1'
+=======
+        :login    => 'XXXXXXXXXXX',
+        :password => 'YYYYYYYYYYYYYYYY'
+>>>>>>> 418e4e7b4d1fce0f538e2fd8afb251d783b33877
         # the statement ":test = 'true'" tells the gateway to not to process transactions
       )
 
