@@ -1,14 +1,14 @@
 require 'test_helper'
 
 class CheckoutTest < ActionDispatch::IntegrationTest
-  fixtures :publishers, :authors, :books
+  fixtures :producers, :artists, :discs
 
   test "empty_cart_shows_error_message" do
     get '/checkout'
     assert_response :redirect
     assert_redirected_to :controller => 'catalog'
     assert_equal flash[:notice], 'Your shopping cart is empty! ' +
-                                 'Please add at least one book to it before proceeding to check out.'
+                                 'Please add at least one disc to it before proceeding to check out.'
   end
 
   test "submitting_order" do
@@ -36,7 +36,7 @@ class CheckoutTest < ActionDispatch::IntegrationTest
       # Billing information
       :card_type => 'Visa',
       :card_number => '4007000000027',
-      :card_expiration_month => '3',
+      :card_expiration_month => '12',
       :card_expiration_year => '2018',
       :card_verification_value => '000'
     }

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'admin/disc' => 'admin/disc#index'
   get 'admin/order' => 'admin/order#index'
   get 'catalog' => 'catalog#index'
+  get 'checkout' => 'checkout#index'
 
   get 'about/index' # generada por defecto al crear la plantilla desde rails
 
