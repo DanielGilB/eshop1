@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   
+  get 'checkout/index'
+  post 'checkout/submit_order'
+  get 'checkout/thank_you'
 
   get 'cart/add'
-
   get 'cart/remove'
-
   get 'cart/clear'
 
   root :to => 'about#index'
