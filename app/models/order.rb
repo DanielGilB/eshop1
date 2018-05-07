@@ -42,8 +42,8 @@ class Order < ActiveRecord::Base
       raise 'Un pedido realizado no puede procesarse de nuevo' if self.closed?
       active_merchant_payment
     rescue => e
-      logger.error("Order #{id} failed due to raised exception: #{e}.")
-      self.error_message = "Exception raised: #{e}"
+      logger.error("Fallo en el pedido #{id} por la excepción: #{e}.")
+      self.error_message = "Excepcón lanzada: #{e}"
       self.status = 'failed'
     end
     save!
