@@ -6,11 +6,9 @@ gem 'RedCloth', '4.2.9'
 
 gem 'paperclip', '4.3.2'
 
-<<<<<<< HEAD
+
 # order 07/05/2018
 
-=======
->>>>>>> 418e4e7b4d1fce0f538e2fd8afb251d783b33877
 gem 'countries', '0.9.3', :require => 'iso3166'
 
 gem 'country_select', '1.3.1'
