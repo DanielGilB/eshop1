@@ -8,8 +8,8 @@ class Order < ActiveRecord::Base
   has_many :discs, :through => :order_items
 
   validates_presence_of :order_items,
-                        :message => 'Your shopping cart is empty! ' +
-                                    'Please add at least one disc to it before submitting the order.'
+                        :message => '¡El carrito de la compra está vacio! ' +
+                                    'Por favor añada al menos un articulo antes de realizar el pedido.'
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_length_of :phone_number, :in => 7..20
 
@@ -39,7 +39,7 @@ class Order < ActiveRecord::Base
 
   def process
     begin
-      raise 'A closed order cannot be processed again' if self.closed?
+      raise 'Un pedido realizado no puede procesarse de nuevo' if self.closed?
       active_merchant_payment
     rescue => e
       logger.error("Order #{id} failed due to raised exception: #{e}.")
@@ -81,7 +81,7 @@ class Order < ActiveRecord::Base
 
     # order information
     details = {
-      :description      => 'Emporium Discstore purchase',
+      :description      => 'INEs Music',
       :order_id         => self.id,
       :email            => email,
       :ip               => customer_ip,
@@ -105,7 +105,7 @@ class Order < ActiveRecord::Base
         self.error_message = response.message
       end
     else
-      self.error_message = 'Credit card not valid'
+      self.error_message = 'Tarjeta de credito no valida'
     end
   end
 
