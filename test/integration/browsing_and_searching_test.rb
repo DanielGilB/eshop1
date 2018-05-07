@@ -7,7 +7,7 @@ class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
     jill = new_session_as :jill
     jill.index
     jill.second_page
-    jill.disc_details 'Pride and Prejudice'
+    jill.disc_details 'Christian Hellsten'
     jill.latest_discs
   end
 

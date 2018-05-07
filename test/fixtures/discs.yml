@@ -57,7 +57,7 @@ ruby_for_dummies_8:
   price: 185
 pride_and_prejudice_9:
   id: 9
-  title: Pride and Prejudice
+  title: Christian Hellsten
   producer_id: 2
   serial_number: 291
   produced_at: <%= Time.now.strftime("%Y-%m-%d") %>
