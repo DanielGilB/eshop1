@@ -1,0 +1,46 @@
+<h2>Contact Information</h2>
+<dl>
+  <dt>E-mail</dt>
+  <dd><%= @order.email %></dd>
+  <dt>Phone number</dt>
+  <dd><%= @order.phone_number %></dd>
+</dl>
+
+<h2>Shipping Address</h2>
+<dl>
+  <dt>First name</dt>
+  <dd><%= @order.ship_to_first_name %></dd>
+  <dt>Last name</dt>
+  <dd><%= @order.ship_to_last_name %></dd>
+  <dt>Address</dt>
+  <dd><%= @order.ship_to_address %></dd>
+  <dt>City</dt>
+  <dd><%= @order.ship_to_city %></dd>
+  <dt>Postal/Zip code</dt>
+  <dd><%= @order.ship_to_postal_code %></dd>
+  <dt>Country</dt>
+  <dd><%= Country.find_country_by_alpha2(@order.ship_to_country_code).name %></dd>
+</dl>
+
+<h2>Order Details</h2>
+<% for item in @order.order_items %>
+  <%= link_to item.disc.title, :controller => 'disc', :action => 'show', :id => item.disc.id %>
+  <%= pluralize(item.amount, "disc", "discs") %>, <%= item.price * item.amount %> € <br/>
+<% end %>
+
+<p><strong>Order total <%= @order.total %> €</strong></p>
+
+<h2>Order Status</h2>
+<dl>
+  <dt>Status</dt>
+  <dd><%= @order.status[0].capitalize + @order.status[1..@order.status.length-1] %></dd>
+  <% if @order.failed? %>
+    <dt>Error</dt>
+    <dd><%= @order.error_message %></dd>
+  <% end %>
+</dl>
+
+<% if !@order.closed? %> <p></p> <% end %>
+<%= button_to 'Close order', {:action => 'close', :id => @order},
+    data: { confirm: "Are you sure you want to close order #{@order.id}?" } if @order.processed? %>
+<%= render :partial => 'navigation' %>

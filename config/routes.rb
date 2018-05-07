@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  post 'admin/order/close'
+  post 'admin/order/destroy'
+  get 'admin/order/show'
+  get 'admin/order/show/:id' => 'admin/order#show'
+  get 'admin/order/index'
+
   get 'checkout/index'
   post 'checkout/submit_order'
   get 'checkout/thank_you'
@@ -14,6 +20,7 @@ Rails.application.routes.draw do
   get 'admin/producer' => 'admin/producer#index'
   get 'admin/artist' => 'admin/artist#index'
   get 'admin/disc' => 'admin/disc#index'
+  get 'admin/order' => 'admin/order#index'
   get 'catalog' => 'catalog#index'
 
   get 'about/index' # generada por defecto al crear la plantilla desde rails

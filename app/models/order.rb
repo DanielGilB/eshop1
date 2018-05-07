@@ -29,6 +29,14 @@ class Order < ActiveRecord::Base
   validates_inclusion_of :card_expiration_year, :in => %w(2013 2014 2015 2016 2017 2018), :on => :create
   validates_length_of :card_verification_value, :in => 3..4, :on => :create
 
+  def amount
+    sum = 0
+    order_items.each do |item|
+      sum += item.amount
+    end
+    sum
+  end
+
   def total
     sum = 0
     order_items.each do |item|

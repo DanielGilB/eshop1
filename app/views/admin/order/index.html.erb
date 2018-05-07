@@ -1,0 +1,37 @@
+<% if @orders == [] %>
+  <h2><%= "There are no orders with '#{@status}' status." %></h2>
+<% else %>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Status</th>
+      <th>Total amount</th>
+      <th>Cantidad</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th></th>
+    </tr>
+  <% for order in @orders %>
+    <tr>
+      <td align="center"><%= order.id %></td>
+      <td align="center"><%= order.status[0].capitalize + order.status[1..order.status.length-1] %></td>
+      <td align="center"><%= order.total %></td>
+      <td align="center"><%= order.amount %></td>
+      <td align="center"><%= order.created_at.strftime("%d-%m-%Y %I:%M") %></td>
+      <td align="center"><%= order.updated_at.strftime("%d-%m-%Y %I:%M") %></td>
+      <td><%= link_to 'Show', :action => 'show', :id => order %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <% if @orders.total_pages > 1 %>
+    <br/>
+    <%= 'View page:' %>
+  <% end %>
+
+  <%= will_paginate @orders, :page_links => true, :link_separator => ' ', :container => false,
+                             :previous_label => '', :next_label => '' %>
+  <p></p>
+<% end %>
+
+<%= render :partial => 'navigation' %>
