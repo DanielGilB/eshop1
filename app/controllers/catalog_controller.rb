@@ -14,6 +14,6 @@ class CatalogController < ApplicationController
 
   def latest
     @discs = Disc.latest 5 # invoques "latest" method to get the five latest discs
-    @page_title = 'Latest discs'
+    @page_title = 'Últimos discos'
   end
 end

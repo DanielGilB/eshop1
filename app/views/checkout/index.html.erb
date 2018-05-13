@@ -1,6 +1,6 @@
 <% if @order.errors.any? %>
   <div id="errorExplanation">
-  <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+  <h2><%= pluralize(@order.errors.count, "error") %> al realizar el pedido:</h2>
     <ul>
       <% @order.errors.full_messages.each do |msg| %>
         <% if msg.include?('Order items ') %>
@@ -13,40 +13,40 @@
   </div>
 <% end %>
 
-<p><em>Your order is displayed in the shopping cart to the right.</em></p>
+<p><em>Su pedido se muestra en el carrito de compras a la derecha.</em></p>
 <%= form_tag :action => 'submit_order' do %>
   <div id="checkout">
     <fieldset>
-      <legend>Contact Information</legend>
+      <legend>Información de contacto</legend>
       <p><label for="order_email">Email</label><br/>
       <%= text_field :order, :email %></p>
-      <p><label for="order_phone_number">Phone number</label><br/>
+      <p><label for="order_phone_number">Número de teléfono</label><br/>
       <%= text_field :order, :phone_number %></p>
     </fieldset>
 
     <fieldset>
-      <legend>Shipping Address</legend>
-      <p><label for="order_ship_to_first_name">First name</label><br/>
+      <legend>Dirección de envío</legend>
+      <p><label for="order_ship_to_first_name">Nombre</label><br/>
       <%= text_field :order, :ship_to_first_name %></p>
-      <p><label for="order_ship_to_last_name">Last name</label><br/>
+      <p><label for="order_ship_to_last_name">Apellidos</label><br/>
       <%= text_field :order, :ship_to_last_name %></p>
-      <p><label for="order_ship_to_address">Address</label><br/>
+      <p><label for="order_ship_to_address">Dirección</label><br/>
       <%= text_field :order, :ship_to_address %></p>
-      <p><label for="order_ship_to_city">City</label><br/>
+      <p><label for="order_ship_to_city">Ciudad</label><br/>
       <%= text_field :order, :ship_to_city %></p>
-      <p><label for="order_ship_to_postal_code">Postal/Zip code</label><br/>
+      <p><label for="order_ship_to_postal_code">Código postal</label><br/>
       <%= text_field :order, :ship_to_postal_code %></p>
-      <p><label for="order_ship_to_country_code">Country</label><br/>
+      <p><label for="order_ship_to_country_code">País</label><br/>
       <%= country_select(:order, :ship_to_country_code, ['ES'], :iso_codes => true) %></p>
     </fieldset>
 
     <fieldset>
-      <legend>Billing Information</legend>
-      <p><label for="order_card_type">Credit card type</label><br/>
+      <legend>Datos de facturación</legend>
+      <p><label for="order_card_type">Tarjeta de crédito</label><br/>
       <select name="order[card_type]" id="order_card_type">
         <%= options_for_select(["Visa", "MasterCard", "American Express", "Discover"], @order.card_type) %>
       </select></p>
-      <p><label for="order_card_expiration_month">Expiration date</label><br/>
+      <p><label for="order_card_expiration_month">Fecha de expiración</label><br/>
       <select name="order[card_expiration_month]">
         <%= options_for_select(%w(1 2 3 4 5 6 7 8 9 10 11 12), @order.card_expiration_month) %>
       </select>
@@ -54,7 +54,7 @@
       <select name="order[card_expiration_year]">
         <%= options_for_select(%w(2013 2014 2015 2016 2017 2018), @order.card_expiration_year) %>
       </select></p>
-      <p><label for="order_card_number">Card number</label><br/>
+      <p><label for="order_card_number">Número de tarjeta</label><br/>
       <%= text_field :order, :card_number %></p>
       <p>
         <label for="order_card_verification_value">
@@ -69,6 +69,6 @@
       <%= hidden_field :cart, :id %>
     </div>
 
-    <p><%= submit_tag "Submit Order" %></p>
+    <p><%= submit_tag "Realizar pedido" %></p>
   </div>
 <% end %>

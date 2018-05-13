@@ -1,14 +1,27 @@
 <% if @orders == [] %>
-  <h2><%= "There are no orders with '#{@status}' status." %></h2>
+  <h2><%=
+  case @status
+    when 'all'
+      "No hay ordenes."
+    when 'closed'
+      "No hay ordenes en estado cerrada."
+    when 'open'
+      "No hay ordenes en estado abierta."
+    when 'processed'
+      "No hay ordenes en estado procesada."
+    when 'failed'
+      "No hay ordenes en estado fallida"
+    end
+     %></h2>
 <% else %>
   <table>
     <tr>
       <th>ID</th>
-      <th>Status</th>
-      <th>Total amount</th>
+      <th>Estado</th>
+      <th>Precio</th>
       <th>Cantidad</th>
-      <th>Created at</th>
-      <th>Updated at</th>
+      <th>Fecha de creación</th>
+      <th>Última actualización</th>
       <th></th>
     </tr>
   <% for order in @orders %>
@@ -19,7 +32,7 @@
       <td align="center"><%= order.amount %></td>
       <td align="center"><%= order.created_at.strftime("%d-%m-%Y %I:%M") %></td>
       <td align="center"><%= order.updated_at.strftime("%d-%m-%Y %I:%M") %></td>
-      <td><%= link_to 'Show', :action => 'show', :id => order %></td>
+      <td><%= link_to 'Mostrar', :action => 'show', :id => order %></td>
     </tr>
   <% end %>
   </table>
