@@ -6,6 +6,9 @@ gem 'RedCloth', '4.2.9'
 
 gem 'paperclip', '4.3.2'
 
+# sessions 14/05/2018
+
+gem 'authlogic', '3.4.6'
 
 gem 'authlogic', '3.4.6'
 
