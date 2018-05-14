@@ -31,7 +31,7 @@ def current_user_session
     unless current_user
       store_location
       flash[:notice] = "You must be logged in to access this page."
-      redirect_to :controller => '/user_sessions', :action => 'new'
+      redirect_to :controller => '/user_session', :action => 'new'
       return false
     end
   end

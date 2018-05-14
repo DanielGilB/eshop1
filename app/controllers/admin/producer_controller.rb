@@ -1,4 +1,4 @@
-class Admin::ProducerController < ApplicationController
+class Admin::ProducerController < Admin::AuthenticatedController
   def new
     @producer = Producer.new
     @page_title = 'Insertar nueva Productora'

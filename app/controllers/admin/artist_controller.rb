@@ -1,4 +1,4 @@
-class Admin::ArtistController < ApplicationController
+class Admin::ArtistController < Admin::AuthenticatedController
 	def new
     @artist = Artist.new
     @page_title = 'Create new artist'

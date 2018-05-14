@@ -67,10 +67,10 @@ Rails.application.routes.draw do
   get 'cart/clear'
   post 'cart/clear'
 
-  get 'user_sessions/new'
-  get 'user_sessions/create' # for showing failed login screen after restarting web server
-  post 'user_sessions/create'
-  get 'user_sessions/destroy'
+  get 'user_session/new'
+  get 'user_session/create' # for showing failed login screen after restarting web server
+  post 'user_session/create'
+  get 'user_session/destroy'
 
   get 'user/new'
   post 'user/create'

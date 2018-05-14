@@ -1,4 +1,4 @@
-class Admin::OrderController < ApplicationController
+class Admin::OrderController < Admin::AuthenticatedController
   def close
     order = Order.find(params[:id])
     order.close
