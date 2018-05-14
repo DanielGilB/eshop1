@@ -10,6 +10,22 @@
   <div id="header">
     <h1 id="logo">INEs Music&trade;</h1>
     <h2 id="slogan">Music on Rails</h2>
+    <% if current_user %>
+      <p id="loginlogout">
+        Logged in as <%= current_user.login %>
+        (<%= link_to "Edit account", :controller => '/user', :action => :show %>)
+        <br/>
+        (<%= link_to "Logout", :controller => '/user_sessions', :action => :destroy %>)
+      </p>
+    <% else %>
+      <p id="loginlogout">
+        <% if User.count == 0 %>
+          (<%= link_to "Create new account", :controller => '/user', :action => :new %>)
+        <% else %>
+          (<%= link_to "Login", :controller => '/user_sessions', :action => :new %>)
+        <% end %>
+      </p>
+    <% end %>
   </div>
 
   <div id="menu">
