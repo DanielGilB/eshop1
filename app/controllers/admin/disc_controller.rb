@@ -1,4 +1,5 @@
 class Admin::DiscController < Admin::AuthenticatedController
+  def new
     load_data
     @disc = Disc.new
     @page_title = 'Insertar disco.'
