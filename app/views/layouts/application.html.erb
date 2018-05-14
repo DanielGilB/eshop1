@@ -15,14 +15,14 @@
         Logged in as <%= current_user.login %>
         (<%= link_to "Edit account", :controller => '/user', :action => :show %>)
         <br/>
-        (<%= link_to "Logout", :controller => '/user_sessions', :action => :destroy %>)
+        (<%= link_to "Logout", :controller => '/user_session', :action => :destroy %>)
       </p>
     <% else %>
       <p id="loginlogout">
         <% if User.count == 0 %>
           (<%= link_to "Create new account", :controller => '/user', :action => :new %>)
         <% else %>
-          (<%= link_to "Login", :controller => '/user_sessions', :action => :new %>)
+          (<%= link_to "Login", :controller => '/user_session', :action => :new %>)
         <% end %>
       </p>
     <% end %>
