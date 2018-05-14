@@ -7,6 +7,8 @@ gem 'RedCloth', '4.2.9'
 gem 'paperclip', '4.3.2'
 
 
+gem 'authlogic', '3.4.6'
+
 # order 07/05/2018
 
 gem 'countries', '0.9.3', :require => 'iso3166'
