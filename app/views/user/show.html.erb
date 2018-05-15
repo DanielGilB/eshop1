@@ -1,34 +1,34 @@
 <dl>
-  <dt>Name</dt>
+  <dt>Nombre</dt>
   <dd><%= @user.name %></dd>
 
-  <dt>Nombre de Usuario</dt>
+  <dt>Nombre de usuario</dt>
   <dd><%= @user.login %></dd>
 
-  <dt>E-mail</dt>
+  <dt>Correo electrónico</dt>
   <dd><%= @user.email %></dd>
 
-  <dt>Login count</dt>
+  <dt>Número de inicios de sesión</dt>
   <dd><%= @user.login_count %></dd>
 
-  <dt>Last request at</dt>
+  <dt>Última petición</dt>
   <dd><%= @user.last_request_at %></dd>
 
   <% if @user.last_login_at %>
-    <dt>Last login at</dt>
+    <dt>Último inicio de sesión</dt>
     <dd><%= @user.last_login_at %></dd>
   <% end %>
 
-  <dt>Current login at</dt>
+  <dt>Sesión iniciada desde</dt>
   <dd><%= @user.current_login_at %></dd>
 
   <% if @user.last_login_ip %>
-    <dt>Last login IP</dt>
+    <dt>IP del último inicio de sesión</dt>
     <dd><%= @user.last_login_ip %></dd>
   <% end %>
 
-  <dt>Current login IP</dt>
+  <dt>IP del inicio de sesión actual</dt>
   <dd><%= @user.current_login_ip %></dd>
 </dl>
 
-<%= link_to 'Edit', :action => 'edit' %>
+<%= link_to 'Editar', :action => 'edit' %>

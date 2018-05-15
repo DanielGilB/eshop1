@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
   <div id="errorExplanation">
-  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this account from being created:</h2>
+  <h2><%= pluralize(@user.errors.count, "error") %> cuenta imposible de crear: </h2>
     <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

@@ -3,14 +3,14 @@ class UserSessionController < ApplicationController
 
   def new
     @user_session = UserSession.new
-    @page_title = 'Login'
+    @page_title = 'Inicio de sesión'
   end
 
   def create
     @user_session = UserSession.new(params[:user_session])
     @user_session.remember_me = false # just in case
     if @user_session.save
-      flash[:notice] = "Logged in successfully."
+      flash[:notice] = "Inicio de sesión correcto."
       redirect_back_or_default :controller => '/admin/author', :action => :index # default login route
     else
       render :action => :new
@@ -20,7 +20,7 @@ class UserSessionController < ApplicationController
   def destroy
     if current_user_session # only for an authenticated user
       current_user_session.destroy
-      flash[:notice] = "Logged out successfully."
+      flash[:notice] = "Abandono de sesión correcto."
     end  
     redirect_to :controller => :catalog, :action => :index # logout route
   end
