@@ -28,7 +28,7 @@ class UserTest < ActionDispatch::IntegrationTest
       assert_response :success
       assert_template 'user/new'
       assert_select 'div#content' do
-        assert_select 'h1', 'Create new account'
+        assert_select 'h1', 'Crear nueva cuenta'
         assert_select 'input#user_name'
       end
       # assert_tag :tag => 'h1', :content => 'Create new account'
@@ -40,12 +40,12 @@ class UserTest < ActionDispatch::IntegrationTest
       assert_template 'user/show'
       assert_select 'div#content' do
         assert_select 'h1', user_name
-        assert_select 'dt', 'Name'
+        assert_select 'dt', 'Nombre'
         assert_select 'dd', user_name
       end
       # assert_tag :tag => 'h1', :content => user_name
-      assert_equal flash[:notice], "Account #{user_name} was succesfully created. User logged in."
-      assert_select 'div#notice', "Account #{user_name} was succesfully created. User logged in."
+      assert_equal flash[:notice], "La cuenta #{user_name} ha sido creada correctamente. Inicia sesión."
+      assert_select 'div#notice', "La cuenta #{user_name} ha sido creada correctamente. Inicia sesión."
       # assert_tag :tag => 'div', :attributes => { :id => 'notice' },
       #                           :content => "Account #{user_name} was succesfully created. User logged in."
       # assert_tag :tag => 'dt', :content => 'Name'
@@ -59,7 +59,7 @@ class UserTest < ActionDispatch::IntegrationTest
       assert_template 'user/show'
       assert_select 'div#content' do
         assert_select 'h1', user_account.name
-        assert_select 'dt', 'Name'
+        assert_select 'dt', 'Nombre'
         assert_select 'dd', user_account.name
       end
       # assert_tag :tag => 'h1', :content => user_account.name
@@ -73,7 +73,7 @@ class UserTest < ActionDispatch::IntegrationTest
       assert_response :success
       assert_template 'user/edit'
       assert_select 'div#content' do
-        assert_select 'h1', 'Edit account'
+        assert_select 'h1', 'Editar cuenta'
         assert_select 'input#user_name'
       end
       # assert_tag :tag => 'h1', :content => 'Edit account'
@@ -86,12 +86,12 @@ class UserTest < ActionDispatch::IntegrationTest
       user_name = parameters[:user][:name]
       assert_select 'div#content' do
         assert_select 'h1', user_name
-        assert_select 'dt', 'Name'
+        assert_select 'dt', 'Nombre'
         assert_select 'dd', user_name
       end
       # assert_tag :tag => 'h1', :content => user_name
-      assert_equal flash[:notice], "Account #{user_name} was succesfully updated."
-      assert_select 'div#notice', "Account #{user_name} was succesfully updated."
+      assert_equal flash[:notice], "La cuenta #{user_name} ha sido actualizada correctamente."
+      assert_select 'div#notice', "La cuenta #{user_name} ha sido actualizada correctamente."
       # assert_tag :tag => 'div', :attributes => { :id => 'notice' },
       #                           :content => "Account #{user_name} was succesfully updated."
       # assert_tag :tag => 'dt', :content => 'Name'
