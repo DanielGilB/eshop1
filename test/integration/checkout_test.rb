@@ -8,7 +8,7 @@ class CheckoutTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_redirected_to :controller => 'catalog'
     assert_equal flash[:notice], 'Tu carrito está vacío! ' +
-                                 'Porfavor, añada al menos un disco antes de proceder al checkout.'
+                                 'Porfavor, añada al menos un disco antes de proceder a la facturación.'
   end
 
   test "submitting_order" do

@@ -6,7 +6,7 @@ class CheckoutController < ApplicationController
     @page_title = 'Checkout'
     if @cart.discs.empty?
       flash[:notice] = 'Tu carrito está vacío! ' +
-                       'Porfavor, añada al menos un disco antes de proceder al checkout.'
+                       'Porfavor, añada al menos un disco antes de proceder a la facturación.'
       redirect_to :controller => 'catalog'
     end
   end
