@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   end
 
   validates_presence_of :name, :login, :email, :password, :password_confirmation, :message => 'No puede estar vacío.'
-  validates_length_of :name, :in => 3..225, :message => 'Nombre demsiado corto.'
+  validates_length_of :name, :in => 3..225, :message => 'Nombre demasiado corto.'
   validates_uniqueness_of :name, :login, :email, :message => 'Ya está en uso.'
 end
