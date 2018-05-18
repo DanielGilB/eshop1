@@ -2,7 +2,7 @@
   <dt>Nombre</dt>
   <dd><%= @user.name %></dd>
 
-  <dt>Nombre de usuario</dt>
+  <dt>Usuario</dt>
   <dd><%= @user.login %></dd>
 
   <dt>Correo electrónico</dt>
@@ -19,15 +19,15 @@
     <dd><%= @user.last_login_at %></dd>
   <% end %>
 
-  <dt>Sesión iniciada desde</dt>
+  <dt>Inicio de sesión actual</dt>
   <dd><%= @user.current_login_at %></dd>
 
   <% if @user.last_login_ip %>
-    <dt>IP del último inicio de sesión</dt>
+    <dt>IP de la última sesión</dt>
     <dd><%= @user.last_login_ip %></dd>
   <% end %>
 
-  <dt>IP del inicio de sesión actual</dt>
+  <dt>IP de la sesión actual</dt>
   <dd><%= @user.current_login_ip %></dd>
 </dl>
 

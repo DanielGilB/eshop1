@@ -30,7 +30,7 @@ def current_user_session
     logger.debug "ApplicationController::require_user"
     unless current_user
       store_location
-      flash[:notice] = "Debes de iniciar sesión para acceder a esta página."
+      flash[:notice] = "Debes iniciar sesión para acceder a esta página."
       redirect_to :controller => '/user_session', :action => 'new'
       return false
     end
@@ -40,7 +40,7 @@ def current_user_session
     logger.debug "ApplicationController::require_no_user"
     if current_user
       store_location
-      flash[:notice] = "Debes de abandonar la sesión para acceder a esta página."
+      flash[:notice] = "Debes abandonar la sesión para acceder a esta página."
       redirect_to :controller => 'about', :action => :index
       return false
     end

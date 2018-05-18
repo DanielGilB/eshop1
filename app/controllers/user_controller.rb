@@ -16,7 +16,7 @@ class UserController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save # the new user has been logged in automatically
-      flash[:notice] = "La cuenta #{@user.name} ha sido creada correctamente. Inicia sesión."
+      flash[:notice] = "La cuenta #{@user.name} ha sido creada correctamente. Usuario identificado."
       redirect_to :action => 'show'
     else
       @page_title = 'Crear nueva cuenta'

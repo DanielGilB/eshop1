@@ -41,8 +41,8 @@ class UserTest < ActionDispatch::IntegrationTest
         assert_select 'dt', 'Nombre'
         assert_select 'dd', user_name
       end
-      assert_equal flash[:notice], "La cuenta #{user_name} ha sido creada correctamente. Inicia sesión."
-      assert_select 'div#notice', "La cuenta #{user_name} ha sido creada correctamente. Inicia sesión."
+      assert_equal flash[:notice], "La cuenta #{user_name} ha sido creada correctamente. Usuario identificado."
+      assert_select 'div#notice', "La cuenta #{user_name} ha sido creada correctamente. Usuario identificado."
       return User.find_by_login(parameters[:user][:login])
     end
 

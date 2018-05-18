@@ -15,7 +15,7 @@
         Sesión iniciada como <%= current_user.login %>
         (<%= link_to "Editar cuenta", :controller => '/user', :action => :show %>)
         <br/>
-        (<%= link_to "Desconexión", :controller => '/user_session', :action => :destroy %>)
+        (<%= link_to "Cerrar sesión", :controller => '/user_session', :action => :destroy %>)
       </p>
     <% else %>
       <p id="loginlogout">
