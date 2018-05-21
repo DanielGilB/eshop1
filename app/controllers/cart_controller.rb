@@ -31,14 +31,22 @@ class CartController < ApplicationController
     end
   end
 
+
   def clear
     @page_title = 'Vaciar carrito'
-    if request.post?
-      @cart.cart_items.destroy_all
-      flash[:cart_notice] = "Carrito vaciado."
-      redirect_to :controller => 'catalog'
-    else
-      render :controller => 'cart', :action => 'clear'
+    respond_to do |format|
+      format.js { @cart.cart_items.destroy_all
+                  flash.now[:cart_notice] = "Carrito vaciado."
+                  render :controller => 'cart',
+                          :action => 'clear_with_ajax' }
+      format.html { if request.post?
+                      @cart.cart_items.destroy_all
+                      flash[:cart_notice] = "Carrito vaciado."
+                      redirect_to :controller => 'catalog'
+                    else
+                      render :controller => 'cart', :action => 'clear'
+                    end }
     end
   end
+
 end

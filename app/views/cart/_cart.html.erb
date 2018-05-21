@@ -20,6 +20,6 @@
 <p id='cart_total'><strong>Total: <%= sprintf "%0.2f €", @cart.total %></strong></p>
 <% unless @cart.cart_items.empty? %>
   <p id='clear_cart_link'>
-  <b><%= link_to 'Vaciar carrito', :controller => 'cart', :action => 'clear' %></b>
+  <b><%= link_to 'Vaciar carrito', :controller => 'cart', :action => 'clear', :remote => true %></b>
   </p>
 <% end %>

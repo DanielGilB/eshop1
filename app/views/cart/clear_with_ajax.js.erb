@@ -1,2 +1,4 @@
-page.replace_html "shopping_cart", :partial => "cart/cart"
-page.visual_effect :fade, 'cart_notice', :duration => 3
+jQuery.noConflict();
+jQuery('#shopping_cart').html("<%= j render :partial => 'cart/cart' %>");
+jQuery('#cart_notice').hide('fade', {}, 3000);
+
