@@ -194,6 +194,7 @@ DEPENDENCIES
   RedCloth (= 4.2.9)
   activemerchant (= 1.56.0)
   authlogic (= 3.4.6)
+  builder (= 3.2.3)
   byebug
   coffee-rails (~> 4.1.0)
   countries (= 0.9.3)

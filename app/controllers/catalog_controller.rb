@@ -16,4 +16,20 @@ class CatalogController < ApplicationController
     @discs = Disc.latest 5 # invoques "latest" method to get the five latest discs
     @page_title = 'Últimos discos'
   end
+
+def search
+    @page_title = "Buscar"
+    if params[:commit] == "Search" || params[:q]
+      @discs = Disc.find_by_contents(params[:q].to_s.upcase)
+      unless @discs.size > 0
+        flash.now[:notice] = "No se han encontrado discos con la búsqueda establecida."
+      end
+    end
+  end
+
+  def rss
+    latest
+    render :layout => false
+    response.headers["Content-Type"] = "application/xml; version=1.0; charset=utf-8"
+  end
 end
