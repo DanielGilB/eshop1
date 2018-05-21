@@ -20,7 +20,7 @@ class CatalogController < ApplicationController
 def search
     @page_title = "Buscar"
     if params[:commit] == "Search" || params[:q]
-      @discs = Disc.find_by_contents(params[:q].to_s.upcase)
+      @discs = Disc.find_by(title: params[:q].to_s.upcase)
       unless @discs.size > 0
         flash.now[:notice] = "No se han encontrado discos con la búsqueda establecida."
       end

@@ -1,0 +1,9 @@
+page.insert_html :top, "shopping_cart", :partial => "cart/cart_notice"
+if @cart.discs.include?(@disc)
+  page.replace_html "cart_item_#{@disc.id}", :partial => "cart/item"
+  page.visual_effect :highlight, "cart_item_#{@disc.id}", :duration => 3
+else
+  page.visual_effect :fade, "cart_item_#{@disc.id}", :duration => 1.5
+end
+page.replace_html "cart_total", "<strong>Total: $#{@cart.total}</strong>"
+page.visual_effect :fade, 'cart_notice', :duration => 3

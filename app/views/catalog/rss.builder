@@ -11,7 +11,7 @@ xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
     for disc in @discs
       xml.item do
         xml.title(disc.title)
-        xml.description("#{disc.title} by #{disc.artist_names}")
+        xml.description("#{disc.title} - #{disc.artist_names}")
         xml.pubDate(disc.created_at.to_s(:long))
         xml.guid(url_for(:action => "show", :id => disc, :only_path => false))
         xml.link(url_for(:action => "show", :id => disc, :only_path => false))

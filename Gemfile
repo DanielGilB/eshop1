@@ -1,3 +1,9 @@
+#jquery to ajax cart
+
+gem 'jquery-ui-rails', '4.2.1'
+
+#pagination
+
 source 'https://rubygems.org'
 
 gem 'will_paginate', '3.0.7'
