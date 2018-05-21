@@ -1,20 +1,4 @@
-page.insert_html :top, "shopping_cart", :partial => "cart/cart_notice"
-if @cart.discs.include?(@disc)
-  page.replace_html "cart_item_#{@disc.id}", :partial => "cart/item"
-  page.visual_effect :highlight, "cart_item_#{@disc.id}", :duration => 3
-else
-  page.visual_effect :fade, "cart_item_#{@disc.id}", :duration => 1.5
-end
-page.replace_html "cart_total", "<strong>Total: $#{@cart.total}</strong>"
-page.visual_effect :fade, 'cart_notice', :duration => 3
-
-
-
 jQuery.noConflict();
 jQuery('#shopping_cart').html("<%= j render :partial => 'cart/cart' %>");
 jQuery("#cart_item_<%= @item.disc.id %>").css({'backgroundcolor':'#7ef'}).animate({'background-color':'#def'},3000);
 jQuery('#cart_notice').hide('fade', {}, 3000);
-
-page.replace_html "shopping_cart", :partial => "cart"
-page.visual_effect :highlight, "cart_item_#{@item.book.id}", :duration => 3
-page.visual_effect :fade, 'cart_notice', :duration => 3

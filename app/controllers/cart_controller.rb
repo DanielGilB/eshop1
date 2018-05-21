@@ -22,12 +22,18 @@ class CartController < ApplicationController
   def remove
     @disc = Disc.find params[:id]
     @page_title = 'Eliminar artículo'
-    if request.post?
-      @item = @cart.remove params[:id]
-      flash[:cart_notice] = "Eliminado 1 <em>#{@item.disc.title}</em>."
-      redirect_to :controller => 'catalog'
-    else
-      render :controller => 'cart', :action => 'remove'
+    respond_to do |format|
+      format.js { @item = @cart.remove params[:id]
+                  flash.now[:cart_notice] = "Eliminado <em>#{@item.disc.title}</em>."
+                  render :controller => 'cart',
+                          :action => 'remove_with_ajax' }
+      format.html { if request.post?
+                      @item = @cart.remove params[:id]
+                      flash[:cart_notice] = "Eliminado <em>#{@item.disc.title}</em>."
+                      redirect_to :controller => 'catalog'
+                    else
+                      render :controller => 'cart', :action => 'remove'
+                    end }
     end
   end
 
