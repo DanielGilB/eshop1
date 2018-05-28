@@ -28,11 +28,20 @@ class PasswordResetController < ApplicationController
 							Si no puede usar directamente su URL desde su email
 							intente copiarla directamente desde su navegador o
 							reinicie el proceso de olvidar contraseña"
-			redirect_to :controller => 'user_sessions', :action => 'new'
+			redirect_to :controller => 'user_session', :action => 'new'
 		end
 	end
 
 	def update
 		@user = User.find_by_id(params[:id])
+		@user.password = params[:user][:password]
+		@user.password_confirmation = params[:user][:password_confirmation]
+		if @user.save
+			redirect_to :controller => 'user', :action => 'show'
+			flash[:notice] = "Contraseña correctamente actualizada."
+		else
+			@page_title = 'Editar contraseña'
+			render :action => 'edit'
+		end
 	end 
 end
