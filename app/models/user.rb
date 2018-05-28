@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     a.logged_in_timeout = 5.minutes # default is 10.minutes
     # default encryption system uses "SCrypt" and requires 'scrypt' gem
     # for using previous encryption system uncomment next statement
-    # a.crypto_provider = Authlogic::CryptoProviders::Sha512
+    a.crypto_provider = Authlogic::CryptoProviders::Sha512
   end
 
   validates_presence_of :name, :login, :email, :password, :password_confirmation, :message => 'No puede estar vacío.'
