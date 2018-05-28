@@ -3,12 +3,4 @@
   <%= submit_tag 'Iniciar sesión' %>
 <% end %>
 
-<%= form_tag :action => 'create' do %>
-  <div class="field">
-	<p><label for="email">Correo</label><br/>
-	<%= text_field_tag 'email' %></p>
-  </div>
-<%=submit_tag'Send e-mail'%>
-<% end %>
-
-<%= link_to 'Catalog', :controller => 'catalog' %>
+<%= link_to 'Forgot_passoword', :controller => 'password_reset', :action => 'new' %>

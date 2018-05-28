@@ -10,7 +10,7 @@ class PasswordResetController < ApplicationController
 		if @user
 			@user.reset_perishable_token!
 			Notifier.password_reset_instructions(@user).deliver_now
-			flash[:notice] = 'Las intrucciones para resetear su contraseña te han '
+			flash[:notice] = 'Las intrucciones para resetear su contraseña le han '
 			+ ' sido enviadas. Por favor revise su correo.'
 			redirect_to :controller => 'user_sessions', :action => 'new'
 		else
@@ -19,4 +19,20 @@ class PasswordResetController < ApplicationController
 			render :action => :new
 		end
 	end
+
+	def edit
+		@page_title = 'Actualizar contraseña'
+		@user = User.find_using_perishable_token(params[:id])
+		unless  @user
+			flash[:error] = "Lo siento, no podemos encontrar su cuenta.
+							Si no puede usar directamente su URL desde su email
+							intente copiarla directamente desde su navegador o
+							reinicie el proceso de olvidar contraseña"
+			redirect_to :controller => 'user_sessions', :action => 'new'
+		end
+	end
+
+	def update
+		@user = User.find_by_id(params[:id])
+	end 
 end

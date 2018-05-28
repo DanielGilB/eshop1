@@ -81,6 +81,11 @@ Rails.application.routes.draw do
   get 'user/edit'
   post 'user/update'
 
+  get 'password_reset/new'
+  post 'password_reset/create'
+  get 'password_reset/edit'
+  post 'password_reset/update'
+
 end
 
   # The priority is based upon order of creation: first created -> highest priority.
