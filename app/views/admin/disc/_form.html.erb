@@ -1,6 +1,6 @@
 <% if @disc.errors.any? %>
   <div id="errorExplanation">
-  <h2><%= pluralize(@disc.errors.count, "error") %> prohibited this disc from being saved:</h2>
+  <h2><%= pluralize(@disc.errors.count, "error") %> no se pudo guardar este disco:</h2>
     <ul>
       <% @disc.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

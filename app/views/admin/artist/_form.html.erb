@@ -1,6 +1,6 @@
 <% if @artist.errors.any? %>
   <div id="errorExplanation">
-  <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+  <h2><%= pluralize(@artist.errors.count, "error") %> no se pudo guardar el artista:</h2>
     <ul>
       <% @artist.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
