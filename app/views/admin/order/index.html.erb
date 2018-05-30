@@ -44,7 +44,7 @@
 
   <% if @orders.total_pages > 1 %>
     <br/>
-    <%= 'View page:' %>
+    <%= 'Página:' %>
   <% end %>
 
   <%= will_paginate @orders, :page_links => true, :link_separator => ' ', :container => false,
