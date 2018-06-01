@@ -10,9 +10,8 @@ class PasswordResetController < ApplicationController
 		if @user
 			@user.reset_perishable_token!
 			Notifier.password_reset_instructions(@user).deliver_now
-			flash[:notice] = 'Las intrucciones para resetear su contraseña le han '
-			+ ' sido enviadas. Por favor revise su correo.'
-			redirect_to :controller => 'user_sessions', :action => 'new'
+			flash[:notice] = 'Las intrucciones para resetear su contraseña le han sido enviadas. Por favor revise su correo.'
+			redirect_to :controller => 'user_session', :action => 'new'
 		else
 			@page_title = 'Olvidó su contraseña'
 			flash[:notice] = 'No se ha encontrado ningún usuario con esa direccion de correo.'
