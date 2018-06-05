@@ -1,3 +1,6 @@
+<p><%= link_to "Search", :action => "search" %></p>
+
 <%= render :partial => 'discs' %>
+
 <%= will_paginate @discs, :page_links => false, :link_separator => ' | ',
                           :previous_label => 'Anterior', :next_label => 'Siguiente' %>

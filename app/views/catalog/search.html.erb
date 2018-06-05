@@ -1,7 +1,7 @@
 <%= render :partial => "search_box" %>
 
 <% if @discs %>
-<p>Tu búsqueda "<%= params[:q] %>" ha producido
-<%= pluralize @discs.size, "resultados" %>:</p>
+<p>Tu busqueda "<%= params[:title] %>" ha producido
+<%= pluralize @discs.size, "resultado" %>:</p>
 <%= render(:partial => "discs") %>
 <% end %>

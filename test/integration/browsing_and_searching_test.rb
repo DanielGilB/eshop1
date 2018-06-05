@@ -1,82 +1,91 @@
-require 'test_helper'
+require "#{File.dirname(__FILE__)}/../test_helper"
 
-class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
-  fixtures :producers, :artists, :discs, :artists_discs
+class BrowsingAndSearchingTest < ActionController::IntegrationTest
+  fixtures :producers, :authors, :discs, :authors_discs
 
-  test "browse" do
-    jill = new_session_as :jill
-    jill.index
-    jill.second_page
-    jill.disc_details 'Christian Hellsten'
-    jill.latest_discs
+
+def test_browsing_the_site
+  jill = enter_site(:jill)
+  jill.browse_index
+  jill.go_to_second_page
+  jill.get_book_details_for "Pride and Prejudice"
+  jill.searches_for_tolstoy
+  jill.views_latest_books
+end
+
+def test_getting_details
+  jill = enter_site(:jill)
+  jill.get_disc_details_for "Pride and Prejudice"
+end
+
+private
+
+
+module BrowsingTestDSL
+  include ERB::Util
+  attr_writer :name
+  def browse_index
+    get "/catalog"
+    assert_response :success
+    assert_template "catalog/index"
+    assert_tag :tag => "dl", :attributes =>
+                  { :id => "discs" },
+                :children =>
+                  { :count => 10, :only =>
+                   {:tag => "dt"}}
+    assert_tag :tag => "dt", :content => "The Idiot"
+    check_disc_links
+
   end
 
-  module BrowsingTestDSL
-    include ERB::Util
-    attr_writer :name
+  def go_to_second_page
+    get "/catalog?page=2"
+    assert_response :success
+    assert_template "catalog/index"
+    assert_equal  Disc.find_by_title("Pro Rails E-Commerce"),
+                  assigns(:discs).last
+    check_disc_links
+  end
 
-    def index
-      get '/catalog/index'
-      assert_response :success
-      assert_select 'dl#discs' do
-        assert_select 'dt', :count => 5
-      end
-      assert_select 'dt' do
-        assert_select 'a', 'The Idiot'
-      end
+  def get_disc_details_for(title)
+    @disc = Disc.find_by_title(title)
 
-      check_disc_links
-    end
+    get "/catalog/show/#{@disc.id}"
+    assert_response :success
+    assert_template "catalog/show"
 
-    def second_page
-      get '/catalog/index?page=2'
-      assert_response :success
-      assert_template 'catalog/index'
-      assert_equal Disc.find_by_title('Pro Rails E-Commerce'),
-                   assigns(:discs).last
-      check_disc_links
-    end
+    assert_tag  :tag => "h1",
+                :content => @disc.title
 
-    def disc_details(title)
-      @disc = Disc.where(:title => title).first
-      get "/catalog/show/#{@disc.id}"
-      assert_response :success
-      assert_template 'catalog/show'
-      assert_select 'div#content' do
-        assert_select 'h1', @disc.title
-        assert_select 'h2', "#{@disc.artists.map{|a| a.name}.join(", ")}"
-      end
+    assert_tag  :tag => "h2",
+                :content => "by #{@disc.authors.map{|a| a.name}}"
+  end
 
-    end
+  def searches_for_tolstoy
+    leo = Author.find_by_first_name_and_last_name("Leo", "Tolstoy")
 
-    def latest_discs
-      get '/catalog/latest'
-      assert_response :success
-      assert_template 'catalog/latest'
-      assert_select 'dl#discs' do
-        assert_select 'dt', :count => 5
-      end
-
-      @discs = Disc.latest(5)
-      @discs.each do |a|
-        assert_select 'dt' do
-          assert_select 'a', a.title
-        end
-
-      end
-    end
-
-    def check_disc_links
-      for disc in assigns :discs
-        assert_select 'a' do
-          assert_select '[href=?]', "/catalog/show/#{disc.id}"
-        end
-
-      end
+    get "/catalog/search?q=#{url_encode("Leo Tolstoy")}"
+    assert_response :success
+    assert_template "catalog/search"
+    assert_tag      :tag => "dl", :attributes =>
+                      { :id => "discs" },
+                    :children =>
+                      { :count => leo.discs.size, :only =>
+                        {:tag => "dt"}}
+    leo.discs.each do |disc|
+      assert_tag :tag => "dt", :content => disc.title
     end
   end
 
-  def new_session_as(name)
+  def check_disc_links
+    for disc in assigns(:discs)
+      assert_tag    :tag => "a", :attributes =>
+                      { :href => "/catalog/show/#{disc.id}"}
+    end
+  end
+end
+
+  def enter_site(name)
     open_session do |session|
       session.extend(BrowsingTestDSL)
       session.name = name

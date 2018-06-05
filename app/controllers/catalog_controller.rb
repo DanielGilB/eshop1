@@ -17,11 +17,11 @@ class CatalogController < ApplicationController
     @page_title = 'Últimos discos'
   end
 
-def search
+  def search
     @page_title = "Buscar"
-    if params[:commit] == "Search" || params[:q]
-      @discs = Disc.find_by(title: params[:q].to_s.upcase)
-      unless @discs.size > 0
+    if params[:title] 
+      @discs = Disc.where("title like ?", "%#{params[:title]}")
+    unless @discs.size > 0
         flash.now[:notice] = "No se han encontrado discos con la búsqueda establecida."
       end
     end

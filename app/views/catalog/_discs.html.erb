@@ -1,13 +1,12 @@
 <dl id = 'discs'>
   <% for disc in @discs %>
-    <dt>
-      <%= link_to disc.title, :action => 'show', :id => disc %>
-      <%= link_to '(+)', :controller => 'cart', :action => 'add', :id => disc, :remote => true %>
-    </dt>
+    <dt><%= link_to disc.title, :action => 'show', :id => disc %></dt>
     <% for artist in disc.artists %>
-      <dd><%= artist.first_name %> <%= artist.last_name %></dd>
+      <dd><%= artist.first_name %> , <%= artist.last_name %></dd>
     <% end %>
-    <dd><%= sprintf("Precio: %.2f €", disc.price) %> </dd>
-    <dd><small>Productora: <%= disc.producer.name %></small></dd>
+      <dd>Precio: $<%= sprintf("%.2f", disc.price) %></dd>
+      <dd>Productora: <%= disc.producer.name %></dd>
   <% end %>
 </dl>
+
+      

@@ -1,3 +1,7 @@
+gem 'ferret'
+
+gem 'acts_as_ferret'
+
 #jquery to ajax cart
 
 gem 'jquery-ui-rails', '4.2.1'

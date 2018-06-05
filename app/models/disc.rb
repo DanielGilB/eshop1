@@ -2,6 +2,8 @@ class Disc < ActiveRecord::Base
   has_and_belongs_to_many :artists
   belongs_to :producer
 
+  acts_as_ferret :fields => [:title, :artist_names]
+
   has_many :cart_items
   has_many :carts, :through => :cart_items
 
