@@ -1,6 +1,7 @@
 <dl id = 'discs'>
   <% for disc in @discs %>
-    <dt><%= link_to disc.title, :action => 'show', :id => disc %></dt>
+    <dt><%= link_to disc.title, :action => 'show', :id => disc %>
+     <%= link_to '(+)', :controller => 'cart', :action => 'add', :id => disc, :remote => true %></dt>
     <% for artist in disc.artists %>
       <dd><%= artist.first_name %> , <%= artist.last_name %></dd>
     <% end %>

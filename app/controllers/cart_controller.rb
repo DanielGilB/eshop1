@@ -1,4 +1,4 @@
-class CartController < ApplicationController
+  class CartController < ApplicationController
   before_filter :initialize_cart
 
   def add
