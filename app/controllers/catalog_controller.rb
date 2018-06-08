@@ -1,7 +1,5 @@
 class CatalogController < ApplicationController
   before_filter :initialize_cart, :except => :show
-  #before_filter :require_no_user
-
   def show
     @disc = Disc.find(params[:id])
     @page_title = @disc.title
@@ -20,7 +18,7 @@ class CatalogController < ApplicationController
   def search
     @page_title = "Buscar"
     if params[:title] 
-      @discs = Disc.where("title like ?", "%#{params[:title]}")
+      @discs = Disc.find_with_ferret(params[:title])
     unless @discs.size > 0
         flash.now[:notice] = "No se han encontrado discos con la búsqueda establecida."
       end
